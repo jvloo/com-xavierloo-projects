@@ -1,10 +1,49 @@
 # Projects by Xavier Loo
 
-> A directory of projects by Xavier Loo, served at projects.xavierloo.com.
+> Companies I co-founded, products I built, and work I contributed to.
 
-No projects are listed yet.
+## Built & co-founded
+
+- [Artmeet](https://projects.xavierloo.com/#artmeet): Co-founder & CTO. A marketplace connecting creative designers with recruiters and freelance opportunities. I built the platform across portfolios, applicant tracking, interviews, competitions, and community features.
+- [SenangPrint](https://projects.xavierloo.com/#senangprint): Co-founder · Solo builder. A B2B printing platform for complex print specifications and vendor workflows. I built the commerce engine, dynamic pricing, vendor routing, production tracking, and internal ERP tools.
+- [TheraLink](https://projects.xavierloo.com/#theralink): Solo developer · Contract. A speech therapy marketplace for Malaysia. Built the platform for discovering therapists and booking virtual, clinic, and home-visit appointments.
+
+## Selected contributions
+
+- [Wiseway AI](https://projects.xavierloo.com/#wiseway): Senior software engineer. Worked across the core property platform, AI integrations, and infrastructure. Built WiseProp, a streaming property-feasibility chat product, and WisePower, a solar-energy adviser for Australian homes.
+- [Segi Fresh R&D](https://projects.xavierloo.com/#segi): Solo builder · R&D. Built a fresh-food shelf monitoring and alerting system from proof of concept to pilot. Combined vision-language models, object detection, IP cameras, and Jetson edge hardware to monitor shelf conditions.
+- [UniLah](https://projects.xavierloo.com/#unilah): Technical lead. Led technical architecture and development across mobile and web for a Malaysian student community platform. The student app is now Honey Lemon by UniLah.
+- [Codevio partner projects](https://projects.xavierloo.com/#codevio): Technical delivery & engineering. Led client delivery with business analysts, freelance designers, and developers. Built .NET APIs, web apps, admin portals, dashboards, and integrations with external systems and devices.
+
+## Side projects
+
+- [LOKA Maps](https://projects.xavierloo.com/#loka): Independent project. A map and navigation app for exploring Malaysia, with place search and directions for driving, riding, and walking.
+
+## Open source
+
+- [Agentisan](https://projects.xavierloo.com/#agentisan): Open source. A Rust runtime and MCP server for durable, bounded agent collaboration, with Claude Code and Codex CLI adapters.
+- [Better Grid](https://projects.xavierloo.com/#better-grid): Open source · In progress. A framework-agnostic, TypeScript-first data grid and spreadsheet library with a composable plugin architecture.
+- [Lockscreen Dah?](https://projects.xavierloo.com/#lockscreen): Open source. A macOS menu-bar app that watches for your face and locks the screen when you step away.
+- [Auth0 Manager](https://projects.xavierloo.com/#auth0-manager): Open source · In progress. A desktop GUI for managing Auth0 users and organisations, with search, bulk operations, and data exports.
+- [Citector](https://projects.xavierloo.com/#citector): Open source · Archived. An earlier web tool for checking in-text citations in academic writing. The repository is archived.
+- [PopCat PopBot](https://projects.xavierloo.com/#popcat): Open source · Hobby. A JavaScript and Python experiment automating the PopCat challenge.
+
+## Apps & hackathons
+
+- [CVE Watcher](https://projects.xavierloo.com/#cve-watcher): Hobby app. Filter vulnerability reports by your tech stack, with exploit signals, source links, and practical patch guidance.
+- [Road to AI](https://projects.xavierloo.com/#road-to-ai): Hobby app · In progress. A self-paced, gamified learning path from mathematical foundations towards modern AI. The curriculum is being developed.
+- [Investbook](https://projects.xavierloo.com/#investbook): Hackathon demo · 2020. A short-form video concept for sharing retail-investor ideas. Built for InvestHack 2020, organised by Bursa Malaysia and CGS-CIMB.
+- [Artcert](https://projects.xavierloo.com/#artcert): Hackathon demo · 2023. A creative-ownership demo built for Solana's Hyperdrive Hackathon in 2023.
+
+## Earlier work
+
+- [KL Properties · UM MDS](https://projects.xavierloo.com/#um-mds): Coursework. A property-data exploration project using R Shiny, from my Master's in Data Science at the University of Malaya.
+- [Real-time chatroom engine](https://projects.xavierloo.com/#chatroom): Early project. Private and group channels, live presence tracking, and user management.
+- [Anonymous social platform](https://projects.xavierloo.com/#anonymous-social): Early project. An anonymous posting platform with encrypted data storage and a custom moderation dashboard.
+- [Club & society management](https://projects.xavierloo.com/#club-management): Early project. A management app for student clubs and societies.
 
 ## Related
 
-- [Apps by Xavier Loo](https://apps.xavierloo.com/): Small tools built and maintained by Xavier Loo.
-- [Xavier Loo](https://xavierloo.com/): Personal website.
+- [Main portfolio](https://xavierloo.com/)
+- [Apps](https://apps.xavierloo.com/)
+- [GitHub](https://github.com/jvloo)

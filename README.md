@@ -2,11 +2,15 @@
 
 Project directory for https://projects.xavierloo.com/, matching the styling and hosting of [Apps by Xavier Loo](https://apps.xavierloo.com/).
 
-No projects are listed initially.
+The directory contains built/co-founded products, selected contributions, side projects, open source, apps/hackathons, and earlier work. Content is kept in `site/projects.json`; `scripts/build.mjs` generates the HTML and `llms.txt` so the complete directory is readable without JavaScript.
 
 ## Structure
 
 - `site/`: buildless HTML, CSS, favicon, robots.txt, sitemap and llms.txt.
+- `site/projects.json`: project descriptions, roles, links, and gallery images.
+- `site/media/`: reviewed screenshots and original repository demo media.
+- `scripts/build.mjs`: validates project IDs, groups, URLs and image files, then generates the static directory.
+- `docs/content-review-2026-10-31.md`: source checks and editorial/media decisions.
 - `worker/`: Cloudflare Worker that proxies GitHub Pages while keeping the public domain in the address bar.
 - `.github/workflows/pages.yml`: publishes `site/` to GitHub Pages.
 - `.github/workflows/worker.yml`: checks and deploys the Worker.
@@ -14,6 +18,13 @@ No projects are listed initially.
 ## Local development
 
 Serve `site/` with any static HTTP server. The page follows the system light/dark preference.
+
+```sh
+node scripts/build.mjs
+python -m http.server 4174 --directory site
+```
+
+Client-side JavaScript adds search, category filters, screenshot galleries and an appearance selector. Project content, outgoing links and native earlier-work expansion remain available without it.
 
 ```sh
 cd worker
@@ -32,7 +43,7 @@ npm run dev
 
 ## Add a project
 
-Add its entry to `site/index.html`, replacing the empty state with a list. The stylesheet includes `.projects`, `.project`, `.project-name`, `.project-desc`, `.project-meta`, and `.status` classes matching the apps directory.
+Add an entry to `site/projects.json`, using an existing category ID. Use an empty `images` array for a labelled placeholder, or add reviewed local images with a caption and public source URL. Add links only where there is a usable public destination. Run `node scripts/build.mjs` and commit the content, media and generated HTML/llms.txt. GitHub Pages regenerates the directory before deployment.
 
 If the project is hosted on GitHub Pages and should appear at `/project-slug/`, add a mapping to `PROJECTS` in `worker/src/index.ts`:
 

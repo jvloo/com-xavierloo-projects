@@ -1,0 +1,578 @@
+{
+  "groups": [
+    {
+      "id": "built",
+      "label": "Built & co-founded",
+      "short": "Built",
+      "intro": "Companies I co-founded and products I built end-to-end.",
+      "layout": "featured"
+    },
+    {
+      "id": "contributions",
+      "label": "Selected contributions",
+      "short": "Contributions",
+      "intro": "Products and teams I helped move forward.",
+      "layout": "standard"
+    },
+    {
+      "id": "side",
+      "label": "Side projects",
+      "short": "Side projects",
+      "intro": "Independent products I keep exploring.",
+      "layout": "wide"
+    },
+    {
+      "id": "opensource",
+      "label": "Open source",
+      "short": "Open source",
+      "intro": "Libraries, developer tools, and small experiments. Source included.",
+      "layout": "compact"
+    },
+    {
+      "id": "experiments",
+      "label": "Apps & hackathons",
+      "short": "Apps & hacks",
+      "intro": "Small useful tools, learning projects, and ideas built under a deadline.",
+      "layout": "standard"
+    },
+    {
+      "id": "earlier",
+      "label": "Earlier work",
+      "short": "Earlier work",
+      "intro": "A few of the projects that started it all.",
+      "layout": "compact",
+      "collapsed": true
+    }
+  ],
+  "projects": [
+    {
+      "id": "artmeet",
+      "group": "built",
+      "name": "Artmeet",
+      "role": "Co-founder & CTO",
+      "kind": "Creative marketplace",
+      "monogram": "A",
+      "description": "A marketplace connecting creative designers with recruiters and freelance opportunities. I built the platform across portfolios, applicant tracking, interviews, competitions, and community features.",
+      "tags": [
+        "Marketplace",
+        "Full stack"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.artmeet.com/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.xavierloo.com/work/artmeet"
+        }
+      ],
+      "press": [
+        {
+          "label": "Vulcan Post",
+          "url": "https://vulcanpost.com/773397/artmeet-malaysia-job-portal-creative-graphic-designers/"
+        },
+        {
+          "label": "Disruptr",
+          "url": "https://www.disruptr.com.my/artmeet-the-marketplace-connecting-creatives-and-recruiters/"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/artmeet-home.png",
+          "caption": "Artmeet's public website",
+          "source": "https://www.artmeet.com/"
+        },
+        {
+          "src": "/media/artmeet-platform.png",
+          "caption": "The Artmeet platform introduction",
+          "source": "https://www.artmeet.com/"
+        }
+      ]
+    },
+    {
+      "id": "senangprint",
+      "group": "built",
+      "name": "SenangPrint",
+      "role": "Co-founder · Solo builder",
+      "kind": "Printing commerce",
+      "monogram": "SP",
+      "description": "A B2B printing platform for complex print specifications and vendor workflows. I built the commerce engine, dynamic pricing, vendor routing, production tracking, and internal ERP tools.",
+      "tags": [
+        "E-commerce",
+        "Workflow automation"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.senangprint.com/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.xavierloo.com/work/senangprint"
+        }
+      ],
+      "press": [
+        {
+          "label": "Yahoo News",
+          "url": "https://malaysia.news.yahoo.com/magic-looking-future-tech-founders-035606920.html"
+        }
+      ],
+      "note": "Storefront currently under maintenance.",
+      "images": []
+    },
+    {
+      "id": "theralink",
+      "group": "built",
+      "name": "TheraLink",
+      "role": "Solo developer · Contract",
+      "kind": "Speech therapy marketplace",
+      "monogram": "TH",
+      "description": "A speech therapy marketplace for Malaysia. Built the platform for discovering therapists and booking virtual, clinic, and home-visit appointments.",
+      "tags": [
+        "Healthcare",
+        "Booking platform"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.theralink.my/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.xavierloo.com/projects/theralink"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/theralink-home.png",
+          "caption": "TheraLink's public homepage",
+          "source": "https://www.theralink.my/"
+        },
+        {
+          "src": "/media/theralink-search.png",
+          "caption": "Therapist discovery and appointment filters",
+          "source": "https://www.theralink.my/therapists"
+        }
+      ]
+    },
+    {
+      "id": "wiseway",
+      "group": "contributions",
+      "name": "Wiseway AI",
+      "role": "Senior software engineer",
+      "kind": "Property & energy",
+      "monogram": "W",
+      "description": "Worked across the core property platform, AI integrations, and infrastructure. Built WiseProp, a streaming property-feasibility chat product, and WisePower, a solar-energy adviser for Australian homes.",
+      "tags": [
+        "AI products",
+        "Full stack",
+        "DevOps"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://www.wiseway.ai/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.xavierloo.com/work/wiseway-ai"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/wiseway-feasibility.jpg",
+          "caption": "Core platform: feasibility summary. QA example data, captured 27 Oct 2026.",
+          "source": "https://www.wiseway.ai/"
+        },
+        {
+          "src": "/media/wiseway-timeline.jpg",
+          "caption": "Core platform: development timeline. QA example data, captured 27 Oct 2026.",
+          "source": "https://www.wiseway.ai/"
+        },
+        {
+          "src": "/media/wiseway-sensitivity.jpg",
+          "caption": "Core platform: sensitivity analysis. QA example data, captured 27 Oct 2026.",
+          "source": "https://www.wiseway.ai/"
+        }
+      ]
+    },
+    {
+      "id": "segi",
+      "group": "contributions",
+      "name": "Segi Fresh R&D",
+      "role": "Solo builder · R&D",
+      "kind": "Retail vision pilot",
+      "monogram": "SF",
+      "description": "Built a fresh-food shelf monitoring and alerting system from proof of concept to pilot. Combined vision-language models, object detection, IP cameras, and Jetson edge hardware to monitor shelf conditions.",
+      "tags": [
+        "Computer vision",
+        "Edge AI"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "unilah",
+      "group": "contributions",
+      "name": "UniLah",
+      "role": "Technical lead",
+      "kind": "Student community",
+      "monogram": "U",
+      "description": "Led technical architecture and development across mobile and web for a Malaysian student community platform. The student app is now Honey Lemon by UniLah.",
+      "tags": [
+        "Mobile",
+        "Web platform"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://myunilah.com/"
+        },
+        {
+          "label": "Case study",
+          "url": "https://www.xavierloo.com/work/unilah"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/unilah-home.png",
+          "caption": "UniLah's public website today",
+          "source": "https://myunilah.com/"
+        }
+      ]
+    },
+    {
+      "id": "codevio",
+      "group": "contributions",
+      "name": "Codevio partner projects",
+      "role": "Technical delivery & engineering",
+      "kind": "Client platforms",
+      "monogram": "CV",
+      "description": "Led client delivery with business analysts, freelance designers, and developers. Built .NET APIs, web apps, admin portals, dashboards, and integrations with external systems and devices.",
+      "tags": [
+        "ASP.NET Core",
+        "C#",
+        "SQL Server"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "loka",
+      "group": "side",
+      "name": "LOKA Maps",
+      "role": "Independent project",
+      "kind": "Maps & navigation",
+      "monogram": "L",
+      "description": "A map and navigation app for exploring Malaysia, with place search and directions for driving, riding, and walking.",
+      "tags": [
+        "Maps",
+        "Navigation"
+      ],
+      "links": [
+        {
+          "label": "Explore LOKA",
+          "url": "https://lokamaps.app/"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/loka-map.png",
+          "caption": "LOKA's map view. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+          "source": "https://lokamaps.app/",
+          "attribution": true
+        },
+        {
+          "src": "/media/loka-directions.png",
+          "caption": "LOKA's directions panel. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+          "source": "https://lokamaps.app/",
+          "attribution": true
+        }
+      ]
+    },
+    {
+      "id": "agentisan",
+      "group": "opensource",
+      "name": "Agentisan",
+      "role": "Open source",
+      "kind": "Agent collaboration",
+      "monogram": "AG",
+      "description": "A Rust runtime and MCP server for durable, bounded agent collaboration, with Claude Code and Codex CLI adapters.",
+      "tags": [
+        "Rust",
+        "MCP"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/agentisan"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "better-grid",
+      "group": "opensource",
+      "name": "Better Grid",
+      "role": "Open source · In progress",
+      "kind": "Data grid library",
+      "monogram": "BG",
+      "description": "A framework-agnostic, TypeScript-first data grid and spreadsheet library with a composable plugin architecture.",
+      "tags": [
+        "TypeScript",
+        "Library"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/better-grid"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "lockscreen",
+      "group": "opensource",
+      "name": "Lockscreen Dah?",
+      "role": "Open source",
+      "kind": "macOS utility",
+      "monogram": "LD",
+      "description": "A macOS menu-bar app that watches for your face and locks the screen when you step away.",
+      "tags": [
+        "Swift",
+        "macOS"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/lockscreen-dah-macos"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/lockscreen-demo.gif",
+          "caption": "Original animated demo from the project repository",
+          "source": "https://github.com/jvloo/lockscreen-dah-macos"
+        }
+      ]
+    },
+    {
+      "id": "auth0-manager",
+      "group": "opensource",
+      "name": "Auth0 Manager",
+      "role": "Open source · In progress",
+      "kind": "Admin utility",
+      "monogram": "A0",
+      "description": "A desktop GUI for managing Auth0 users and organisations, with search, bulk operations, and data exports.",
+      "tags": [
+        "Python",
+        "Desktop"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/auth0-manager"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "citector",
+      "group": "opensource",
+      "name": "Citector",
+      "role": "Open source · Archived",
+      "kind": "Research utility",
+      "monogram": "CT",
+      "description": "An earlier web tool for checking in-text citations in academic writing. The repository is archived.",
+      "tags": [
+        "Academic writing"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/Citector"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "popcat",
+      "group": "opensource",
+      "name": "PopCat PopBot",
+      "role": "Open source · Hobby",
+      "kind": "Automation experiment",
+      "monogram": "PC",
+      "description": "A JavaScript and Python experiment automating the PopCat challenge.",
+      "tags": [
+        "JavaScript",
+        "Python"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/popcat-popbot"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "cve-watcher",
+      "group": "experiments",
+      "name": "CVE Watcher",
+      "role": "Hobby app",
+      "kind": "Security information",
+      "monogram": "CW",
+      "description": "Filter vulnerability reports by your tech stack, with exploit signals, source links, and practical patch guidance.",
+      "tags": [
+        "Web app",
+        "Security"
+      ],
+      "links": [
+        {
+          "label": "Open app",
+          "url": "https://apps.xavierloo.com/cve-watcher/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/cve-watcher"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/cve-watcher.png",
+          "caption": "CVE Watcher's advisories and stack filters",
+          "source": "https://apps.xavierloo.com/cve-watcher/"
+        }
+      ]
+    },
+    {
+      "id": "road-to-ai",
+      "group": "experiments",
+      "name": "Road to AI",
+      "role": "Hobby app · In progress",
+      "kind": "Interactive learning",
+      "monogram": "AI",
+      "description": "A self-paced, gamified learning path from mathematical foundations towards modern AI. The curriculum is being developed.",
+      "tags": [
+        "Education",
+        "Web app"
+      ],
+      "links": [
+        {
+          "label": "Open app",
+          "url": "https://apps.xavierloo.com/road-to-ai/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/road-to-ai"
+        }
+      ],
+      "images": [
+        {
+          "src": "/media/road-to-ai.png",
+          "caption": "Road to AI's learning trail",
+          "source": "https://apps.xavierloo.com/road-to-ai/"
+        }
+      ]
+    },
+    {
+      "id": "investbook",
+      "group": "experiments",
+      "name": "Investbook",
+      "role": "Hackathon demo · 2020",
+      "kind": "InvestHack",
+      "monogram": "IB",
+      "description": "A short-form video concept for sharing retail-investor ideas. Built for InvestHack 2020, organised by Bursa Malaysia and CGS-CIMB.",
+      "tags": [
+        "Hackathon",
+        "Social app"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/investbook"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "artcert",
+      "group": "experiments",
+      "name": "Artcert",
+      "role": "Hackathon demo · 2023",
+      "kind": "Creative ownership",
+      "monogram": "AC",
+      "description": "A creative-ownership demo built for Solana's Hyperdrive Hackathon in 2023.",
+      "tags": [
+        "Hackathon",
+        "Solana"
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/jvloo/artcert-demo"
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "um-mds",
+      "group": "earlier",
+      "name": "KL Properties · UM MDS",
+      "role": "Coursework",
+      "kind": "Property data exploration",
+      "monogram": "KL",
+      "description": "A property-data exploration project using R Shiny, from my Master's in Data Science at the University of Malaya.",
+      "tags": [
+        "R",
+        "Shiny"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "chatroom",
+      "group": "earlier",
+      "name": "Real-time chatroom engine",
+      "role": "Early project",
+      "kind": "Multi-user messaging",
+      "monogram": "CH",
+      "description": "Private and group channels, live presence tracking, and user management.",
+      "tags": [
+        "Real time"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "anonymous-social",
+      "group": "earlier",
+      "name": "Anonymous social platform",
+      "role": "Early project",
+      "kind": "Pharosic Devil Time",
+      "monogram": "DT",
+      "description": "An anonymous posting platform with encrypted data storage and a custom moderation dashboard.",
+      "tags": [
+        "Community",
+        "Moderation"
+      ],
+      "links": [],
+      "images": []
+    },
+    {
+      "id": "club-management",
+      "group": "earlier",
+      "name": "Club & society management",
+      "role": "Early project",
+      "kind": "Student organisations",
+      "monogram": "CS",
+      "description": "A management app for student clubs and societies.",
+      "tags": [
+        "Student organisations"
+      ],
+      "links": [],
+      "images": []
+    }
+  ]
+}

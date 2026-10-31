@@ -1,0 +1,23 @@
+[
+  {
+    "asset": "wiseway-feasibility.jpg",
+    "archive_file": "feasibility-4309-summary.jpg",
+    "sha256": "dd602085b526ca36b7683a32fedb9552f6cc4c3d473927bcab64768b87fae0bd",
+    "captured_date": "2026-10-27",
+    "sample_data": true
+  },
+  {
+    "asset": "wiseway-timeline.jpg",
+    "archive_file": "development-31-timeline.jpg",
+    "sha256": "63a169a34b996e07749d3e02a59bfff574e48b4da2ba51c3a64b84f635d869ae",
+    "captured_date": "2026-10-27",
+    "sample_data": true
+  },
+  {
+    "asset": "wiseway-sensitivity.jpg",
+    "archive_file": "feasibility-4309-sensitivity.jpg",
+    "sha256": "bbce99fc951e1eb0e6ababf2d44c1a9bea7686e22c3bc87647bcb5615676b189",
+    "captured_date": "2026-10-27",
+    "sample_data": true
+  }
+]
