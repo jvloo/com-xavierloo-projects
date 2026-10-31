@@ -49,7 +49,7 @@ Projects without suitable reviewed images use a labelled preview placeholder. Pl
 
 ## Additional media recovery and gallery update
 
-34 screenshots across 17 project galleries are now used. Covers are the first gallery slide. Multi-image cards and galleries rotate every six seconds, with pause controls. Cover previews pause on hover/focus; gallery navigation pauses playback. Hidden tabs and off-screen covers stop their timers. Reduced-motion preference starts playback paused, with an explicit Play control available.
+34 screenshots across 17 project galleries are now used. Covers are the initial card image. At Xavier's request, autoplay has been removed entirely. Multi-image cards have previous/next arrow buttons and gallery dialogs retain previous/next buttons, thumbnails and keyboard navigation. Navigation stops at the first and last images. Clicking a preview opens the currently displayed image. Cover selections will be curated with Xavier one project at a time.
 
 - **Artmeet:** the Malaysia job-listing interface is the cover; its page introduction and original marketing captures follow.
 - **TheraLink:** therapist search is the cover, followed by the homepage.
@@ -68,4 +68,4 @@ The restored frontend harnesses and fixture data are disposable, ignored local w
 
 Five placeholders remain: Codevio partner projects, Agentisan, the early chatroom, anonymous social platform, and club/society app. Repository trees, README-linked media, available releases/issues, and selected alternate branches were checked. Codevio has no suitable product capture; private contact-card photos were excluded. Agentisan has a terminal dashboard but no reviewed screenshot, and the current machine has no Rust toolchain for a source build. The anonymous platform's original view depends on missing application/API state; an incomplete or invented feed is not published. The chatroom and club app have no confidently matched source repository in the reviewed set.
 
-Validation: static build, JavaScript syntax, diff whitespace, image existence and privacy-string scans passed. Browser checks confirmed initial cover ordering, automatic advance, pause controls, manual gallery navigation pausing playback, mobile width containment, and reduced-motion default pause. Captures were visually reviewed before publication.
+Validation: static build, JavaScript syntax, diff whitespace, image existence and privacy-string scans passed. Browser checks confirmed initial cover ordering, card previous/next buttons, gallery previous/next buttons, the absence of playback controls and timers, first-image boundary handling, opening the selected preview in its gallery, and mobile width containment. Captures were visually reviewed before publication.

@@ -47,71 +47,37 @@ const next = document.querySelector('#gallery-next');
 let currentGallery;
 let position = 0;
 let opener;
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const play = document.querySelector('#gallery-play');
-let galleryPlaying = false;
-let galleryTimer;
-let stageHovered = false;
-const slideInterval = 6000;
-const coverSlides = [];
-const coverObserver = new IntersectionObserver(entries => {
-  for (const entry of entries) {
-    const state = coverSlides.find(item => item.frame === entry.target);
-    state.visible = entry.isIntersecting;
-    scheduleCover(state);
-  }
-}, { threshold: .35 });
+const coverPositions = new Map();
 
-function scheduleCover(state) {
-  clearTimeout(state.timer);
-  if (!state.visible || state.paused || document.hidden || dialog.open || state.frame.matches(':hover, :focus-within')) return;
-  state.timer = setTimeout(() => {
-    state.index = (state.index + 1) % state.images.length;
-    const item = state.images[state.index];
-    state.image.src = item.src;
-    state.image.alt = item.caption;
-    state.link.href = item.src;
-    state.frame.classList.toggle('portrait', !!item.portrait);
-    state.frame.querySelector('.cover-count').textContent = `${state.index + 1} / ${state.images.length}`;
-    scheduleCover(state);
-  }, slideInterval);
-}
-document.querySelectorAll('[data-cover-play]').forEach(button => {
-  const frame = button.closest('.project-visual');
+document.querySelectorAll('[data-cover-nav]').forEach(frame => {
+  const id = frame.dataset.coverNav;
   const link = frame.querySelector('[data-gallery]');
-  const state = { frame, link, button, image: link.querySelector('img'), images: galleries[button.dataset.coverPlay].images, index: 0, visible: false, paused: reducedMotion.matches };
-  coverSlides.push(state);
-  const updateButton = () => {
-    button.textContent = state.paused ? 'Play' : 'Pause';
-    button.setAttribute('aria-label', `${state.paused ? 'Play' : 'Pause'} previews: ${galleries[button.dataset.coverPlay].name}`);
-    button.setAttribute('aria-pressed', String(!state.paused));
-  };
-  button.addEventListener('click', () => { state.paused = !state.paused; updateButton(); scheduleCover(state); });
-  for (const event of ['mouseenter', 'mouseleave', 'focusin', 'focusout']) frame.addEventListener(event, () => setTimeout(() => scheduleCover(state), 0));
-  reducedMotion.addEventListener('change', () => { state.paused = reducedMotion.matches; updateButton(); scheduleCover(state); });
-  updateButton();
-  coverObserver.observe(frame);
+  const preview = link.querySelector('img');
+  const items = galleries[id].images;
+  const prev = frame.querySelector('[data-cover-prev]');
+  const next = frame.querySelector('[data-cover-next]');
+  coverPositions.set(id, 0);
+  function showCover(index) {
+    if (index < 0 || index >= items.length) return;
+    coverPositions.set(id, index);
+    const item = items[index];
+    preview.src = item.src;
+    preview.alt = item.caption;
+    link.href = item.src;
+    frame.classList.toggle('portrait', !!item.portrait);
+    frame.querySelector('.cover-count').textContent = `${index + 1} / ${items.length}`;
+    prev.disabled = index === 0;
+    next.disabled = index === items.length - 1;
+  }
+  prev.addEventListener('click', () => showCover(coverPositions.get(id) - 1));
+  next.addEventListener('click', () => showCover(coverPositions.get(id) + 1));
+  frame.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      showCover(coverPositions.get(id) + (event.key === 'ArrowLeft' ? -1 : 1));
+    }
+  });
 });
-document.addEventListener('visibilitychange', () => { coverSlides.forEach(scheduleCover); scheduleGallery(); });
-reducedMotion.addEventListener('change', () => { if (dialog.open && reducedMotion.matches) setGalleryPlaying(false); });
-
-function scheduleGallery() {
-  clearTimeout(galleryTimer);
-  if (!dialog.open || !galleryPlaying || stageHovered || document.hidden) return;
-  galleryTimer = setTimeout(() => {
-    showImage((position + 1) % currentGallery.images.length);
-    scheduleGallery();
-  }, slideInterval);
-}
-function setGalleryPlaying(playing) {
-  galleryPlaying = playing && currentGallery.images.length > 1;
-  play.textContent = galleryPlaying ? 'Pause slideshow' : 'Play slideshow';
-  play.setAttribute('aria-pressed', String(galleryPlaying));
-  play.hidden = currentGallery.images.length < 2;
-  document.querySelector('#gallery-position').setAttribute('aria-live', galleryPlaying ? 'off' : 'polite');
-  scheduleGallery();
-}
-function manualImage(index) { setGalleryPlaying(false); showImage(index); }
 
 function showImage(index) {
   position = index;
@@ -145,32 +111,26 @@ document.querySelectorAll('[data-gallery]').forEach(link => link.addEventListene
     thumb.src = item.src;
     thumb.alt = '';
     button.append(thumb);
-    button.addEventListener('click', () => manualImage(i));
+    button.addEventListener('click', () => showImage(i));
     thumbs.append(button);
   });
-  showImage(0);
+  showImage(coverPositions.get(link.dataset.gallery) || 0);
   dialog.showModal();
-  coverSlides.forEach(scheduleCover);
-  stageHovered = false;
-  setGalleryPlaying(!reducedMotion.matches);
   document.querySelector('#gallery-close').focus();
 }));
 document.querySelector('#gallery-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('close', () => { clearTimeout(galleryTimer); image.removeAttribute('src'); opener?.focus(); coverSlides.forEach(scheduleCover); });
-play.addEventListener('click', () => setGalleryPlaying(!galleryPlaying));
-const stage = document.querySelector('.gallery-stage');
-stage.addEventListener('mouseenter', () => { stageHovered = true; scheduleGallery(); });
-stage.addEventListener('mouseleave', () => { stageHovered = false; scheduleGallery(); });
+dialog.addEventListener('close', () => { image.removeAttribute('src'); opener?.focus(); });
+
 dialog.addEventListener('click', event => {
   const bounds = dialog.getBoundingClientRect();
   if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
 });
-previous.addEventListener('click', () => { if (position > 0) manualImage(position - 1); });
-next.addEventListener('click', () => { if (position < currentGallery.images.length - 1) manualImage(position + 1); });
+previous.addEventListener('click', () => { if (position > 0) showImage(position - 1); });
+next.addEventListener('click', () => { if (position < currentGallery.images.length - 1) showImage(position + 1); });
 document.addEventListener('keydown', event => {
   if (dialog.open) {
-    if (event.key === 'ArrowLeft' && position > 0) { event.preventDefault(); manualImage(position - 1); }
-    if (event.key === 'ArrowRight' && position < currentGallery.images.length - 1) { event.preventDefault(); manualImage(position + 1); }
+    if (event.key === 'ArrowLeft' && position > 0) { event.preventDefault(); showImage(position - 1); }
+    if (event.key === 'ArrowRight' && position < currentGallery.images.length - 1) { event.preventDefault(); showImage(position + 1); }
     return;
   }
   if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.target.closest('input,textarea,select,[contenteditable]')) {

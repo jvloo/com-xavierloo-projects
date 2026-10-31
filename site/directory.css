@@ -50,7 +50,10 @@ button { color: var(--ink); }
 .project-visual.portrait { background: radial-gradient(ellipse at 50% 80%, #83caff55, transparent 70%), #e7f3ff; }
 .project-visual.portrait .project-cover { background: transparent; }
 .project-visual.portrait img { object-fit: contain; object-position: center; padding: 18px; }
-.cover-pause { position: absolute; bottom: 12px; left: 12px; min-height: 32px; padding: 5px 9px; border: 1px solid #ffffff40; border-radius: 6px; background: #0c0c1aed; color: #fff; font: 10px/1.4 var(--font-mono); }
+.cover-navigation { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+.cover-navigation button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 1px solid #ffffff40; border-radius: 6px; background: #0c0c1aed; color: #fff; font: 16px/1 var(--font-mono); }
+.cover-navigation button:hover:enabled { background: #202036; }
+.cover-navigation button:disabled { opacity: .4; cursor: default; }
 a.project-cover:hover img { transform: scale(1.025); }
 .cover-action { position: absolute; bottom: 12px; right: 12px; display: flex; align-items: center; gap: 10px; background: #0c0c1aed; color: #fff; border: 1px solid #ffffff29; border-radius: 6px; padding: 7px 10px; font: 10px/1.4 var(--font-mono); }
 .cover-count { color: #a6afc7; padding-left: 7px; border-left: 1px solid #ffffff40; }
@@ -76,7 +79,7 @@ a.project-cover:hover img { transform: scale(1.025); }
 .compact .project-card { flex-direction: row; }
 .compact > .project-card > .project-cover, .compact .project-visual { width: 128px; aspect-ratio: auto; min-height: 210px; border-bottom: 0; border-right: 1px solid var(--line); }
 .compact .project-visual .project-cover { aspect-ratio: auto; min-height: 100%; border: 0; }
-.compact .cover-pause { top: 8px; bottom: auto; left: 8px; font-size: 9px; }
+.compact .cover-navigation { top: 8px; left: 8px; gap: 4px; }
 .compact .placeholder { padding: 14px 12px; }
 .compact .placeholder-label { font-size: 8px; }
 .compact .monogram { font-size: 2.1rem; }
@@ -190,5 +193,4 @@ dialog figcaption p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 
-.gallery-playback { display:flex; align-items:center; gap:12px; }
-@media(max-width:600px) { .gallery-playback {flex-direction:column;gap:4px} .gallery-playback button {font-size:10px;padding:6px} }
+@media(max-width:700px) { .cover-navigation button { width: 40px; height: 40px; } }
