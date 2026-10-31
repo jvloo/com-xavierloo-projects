@@ -48,7 +48,9 @@
 [data-skin="rpg"] .project-card h3 { font-weight: 500; }
 
 /* Header and style switch */
-[data-skin="rpg"] .masthead { border-bottom: 2px solid var(--line); background: rgb(var(--card) / .94); }
+[data-skin="rpg"] .masthead { border-bottom: 2px solid #303d63; background: #080c1c;
+  --surface: #11182c; --sunken: #1b2340; --muted: #adb7d8; --strong: #faf4ff; --ink: #e2e6ff;
+  --accent: #8befff; --frame: #68789d; --gold: #ff9abc; --ink-on-gold: #1b0c2c; }
 [data-skin="rpg"] .brand { color: var(--strong); font-size: 15px; text-transform: none; }
 [data-skin="rpg"] .header-links { font-size: 12px; }
 [data-skin="rpg"] .header-links a:hover { color: var(--accent); text-decoration: underline; }
