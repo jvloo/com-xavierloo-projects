@@ -18,8 +18,8 @@ for (const file of [rpgStylesheet, rpgBanner]) {
 const rpgStyleRevision = await revision(rpgStylesheet);
 // Skin-specific strings only; names, order, counts and project content are shared.
 const copy = {
-  minimal: {
-    title: 'Projects by Xavier Loo',
+  clean: {
+    title: 'Projects by Xavier Loo · Clean style',
     chapter: number => `// ${String(number).padStart(2, '0')}`,
     directory: '// the directory',
     introEyebrow: 'The person behind the projects',
@@ -29,7 +29,7 @@ const copy = {
     origin: ''
   },
   rpg: {
-    title: 'Projects by Xavier Loo · RPG style',
+    title: 'Projects by Xavier Loo',
     chapter: number => `Chapter ${String(number).padStart(2, '0')}`,
     directory: 'The compendium',
     introEyebrow: "The adventurer's journal",
@@ -120,7 +120,7 @@ return `<!doctype html>
 <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/rpg.css?v=${rpgStyleRevision}">` : ''}<script src="/directory.js?v=${scriptRevision}" defer></script>
 </head><body>
 <a class="skip-link" href="#all-projects">Skip to projects</a>
-<header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="${rpg ? '/rpg/' : '/'}">// projects</a><div class="masthead-actions"><nav class="style-switch" aria-label="Page style"><a href="/"${rpg ? '' : ' aria-current="page"'}>Minimal</a><a href="/rpg/"${rpg ? ' aria-current="page"' : ''}>RPG</a></nav><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></div></header>
+<header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="${rpg ? '/' : '/clean/'}">// projects</a><div class="masthead-actions"><nav class="style-switch" aria-label="Page style"><a href="/"${rpg ? ' aria-current="page"' : ''}>RPG</a><a href="/clean/"${rpg ? '' : ' aria-current="page"'}>Clean</a></nav><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></div></header>
 <main class="wrap" id="directory">
   ${rpg ? `<div class="rpg-opening"><div class="rpg-world" aria-hidden="true"><span class="rpg-scenery"></span><span class="rpg-veil"></span><span class="rpg-stars"></span><span class="rpg-mote m1"></span><span class="rpg-mote m2"></span><span class="rpg-mote m3"></span><span class="rpg-mote m4"></span><span class="rpg-towers left"><i class="tower"></i><i class="tower"></i><i class="tower"></i></span><span class="rpg-towers right"><i class="tower"></i><i class="tower"></i><i class="tower"></i></span></div>
   <div class="rpg-title"><p class="rpg-notes">Field notes · Code, craft &amp; new worlds</p><p class="rpg-display">Every build.<br>A new adventure.</p></div>
@@ -144,8 +144,12 @@ return `<!doctype html>
 </body></html>\n`.replace(/[ \t]+$/gm, '');
 };
 await mkdir(path.join(site, 'rpg'), { recursive: true });
-await writeFile(path.join(site, 'index.html'), renderPage('minimal'));
-await writeFile(path.join(site, 'rpg', 'index.html'), renderPage('rpg'));
+await mkdir(path.join(site, 'clean'), { recursive: true });
+const rpgPage = renderPage('rpg');
+await writeFile(path.join(site, 'index.html'), rpgPage);
+// Legacy alias: same RPG content and root canonical, no redirect.
+await writeFile(path.join(site, 'rpg', 'index.html'), rpgPage);
+await writeFile(path.join(site, 'clean', 'index.html'), renderPage('clean'));
 const llms = `# Projects by Xavier Loo\n\n> Companies I co-founded, products I built, and work I contributed to.\n\n${groups.map(group => `## ${group.label}\n\n${projects.filter(project => project.group === group.id).map(project => `- [${project.name}](https://projects.xavierloo.com/#${project.id}): ${project.role}. ${project.description}`).join('\n')}`).join('\n\n')}\n\n## Related\n\n- [Main portfolio](https://xavierloo.com/)\n- [Apps](https://apps.xavierloo.com/)\n- [GitHub](https://github.com/jvloo)\n`;
 await writeFile(path.join(site, 'llms.txt'), llms);
 console.log(`Built ${projects.length} projects in ${groups.length} categories; ${Object.keys(galleryData).length} galleries.`);
