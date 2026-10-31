@@ -63,7 +63,7 @@ document.querySelectorAll('[data-cover-nav]').forEach(frame => {
     const item = items[index];
     preview.src = item.src;
     preview.alt = item.caption;
-    link.href = item.src;
+    frame.querySelectorAll('[data-gallery]').forEach(anchor => { anchor.href = item.src; });
     frame.classList.toggle('portrait', !!item.portrait);
     frame.querySelector('.cover-count').textContent = `${index + 1} / ${items.length}`;
     prev.disabled = index === 0;
@@ -79,7 +79,17 @@ document.querySelectorAll('[data-cover-nav]').forEach(frame => {
   });
 });
 
+const stage = document.querySelector('.gallery-stage');
+image.addEventListener('load', () => {
+  const tall = image.naturalHeight > image.naturalWidth * 3;
+  stage.classList.toggle('scrollable', tall);
+  document.querySelector('#gallery-scroll-hint').hidden = !tall;
+  stage.scrollTop = 0;
+});
+
 function showImage(index) {
+  stage.classList.remove('scrollable');
+  document.querySelector('#gallery-scroll-hint').hidden = true;
   position = index;
   const current = currentGallery.images[index];
   image.src = current.src;

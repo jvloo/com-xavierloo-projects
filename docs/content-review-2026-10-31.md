@@ -69,3 +69,12 @@ The restored frontend harnesses and fixture data are disposable, ignored local w
 Five placeholders remain: Codevio partner projects, Agentisan, the early chatroom, anonymous social platform, and club/society app. Repository trees, README-linked media, available releases/issues, and selected alternate branches were checked. Codevio has no suitable product capture; private contact-card photos were excluded. Agentisan has a terminal dashboard but no reviewed screenshot, and the current machine has no Rust toolchain for a source build. The anonymous platform's original view depends on missing application/API state; an incomplete or invented feed is not published. The chatroom and club app have no confidently matched source repository in the reviewed set.
 
 Validation: static build, JavaScript syntax, diff whitespace, image existence and privacy-string scans passed. Browser checks confirmed initial cover ordering, card previous/next buttons, gallery previous/next buttons, the absence of playback controls and timers, first-image boundary handling, opening the selected preview in its gallery, and mobile width containment. Captures were visually reviewed before publication.
+
+
+## Screenshot framing review
+
+Artmeet's confirmed cover remains the Malaysia job-listing capture. All screenshot covers now fit the full source image inside their canvas, with padding and no hover zoom. Navigation and gallery links sit in a separate toolbar below the image, so controls cannot obscure logos, headers, or interface content. Open-source and earlier-work cards use full-width image canvases rather than narrow side strips; placeholder covers use the same card orientation for consistent rows.
+
+Portrait app covers retain their original proportions. Very long gallery images (height greater than three times width) are displayed at readable width in a keyboard-focusable scroll region, with a scroll hint, rather than being compressed to the gallery's height. Other gallery images still fit the available screen. Thumbnail images also preserve the complete source frame.
+
+The source screenshots, cover choices, ordering, provenance, private-portal address handling, and manual-only carousel behavior are unchanged. Browser review covers desktop and mobile framing, complete-image fitting, controls outside image bounds, restored map attribution, and the long UniLah design's scrollable gallery. No original media files were edited.
