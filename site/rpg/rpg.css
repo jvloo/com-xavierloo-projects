@@ -2,11 +2,11 @@
    World: always a neon night city behind the opening. The pixel city is decorative; screenshots and the portrait are never filtered. */
 
 [data-skin="rpg"] {
-  --bg: #f1eefc; --surface: #fbf9ff; --sunken: #e4def6; --ink: #1a1f3d; --strong: #0c1030; --muted: #4a5379;
-  --line: #bfb8dd; --accent: #5a2bd0; --frame: #4a3f86; --frame-inner: #fbf9ff; --gold: #ff8fb8; --ink-on-gold: #1b0c2c;
-  --shadow-hard: #1b0c2c33; --glow: #5a2bd01f; --dots: #3a2a7014; --wip: #a0345f;
-  --card: 251 249 255; --veil: 8 12 28; --veil-a: .5; --silhouette: #060a18;
-  --stars: 1; --mote: #8befff; --rail: #7b6fc0;
+  --bg: #eef5fb; --surface: #f9fcff; --sunken: #dfeaf5; --ink: #152438; --strong: #0c1b30; --muted: #445c75;
+  --line: #b8ccdd; --accent: #006b80; --frame: #34566f; --frame-inner: #f9fcff; --gold: #22d3ee; --ink-on-gold: #07151f;
+  --shadow-hard: #0a213633; --glow: #006b801f; --dots: #2a5b7014; --wip: #92641a;
+  --card: 249 252 255; --veil: 8 12 28; --veil-a: .5; --silhouette: #060a18;
+  --stars: 1; --mote: #8befff; --rail: #64869d;
   --font-head: "Pixelify Sans", var(--font-mono);
   --font-label: "Silkscreen", var(--font-mono);
   color-scheme: light;
@@ -14,8 +14,8 @@
 @media (prefers-color-scheme: dark) {
   [data-skin="rpg"]:not([data-theme="light"]) {
     --bg: #080c1c; --surface: #11182c; --sunken: #1b2340; --ink: #e2e6ff; --strong: #faf4ff; --muted: #adb7d8;
-    --line: #303d63; --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #ff9abc; --ink-on-gold: #1b0c2c;
-    --shadow-hard: #00000088; --glow: #8befff22; --dots: #ffffff0a; --wip: #ff9abc;
+    --line: #303d63; --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #22d3ee; --ink-on-gold: #07151f;
+    --shadow-hard: #00000088; --glow: #8befff22; --dots: #ffffff0a; --wip: #ffc86b;
     --card: 17 24 44; --veil: 8 12 28; --veil-a: .62; --silhouette: #04060f;
     --stars: 1; --mote: #8befff; --rail: #68789d;
     color-scheme: dark;
@@ -23,8 +23,8 @@
 }
 [data-skin="rpg"][data-theme="dark"] {
   --bg: #080c1c; --surface: #11182c; --sunken: #1b2340; --ink: #e2e6ff; --strong: #faf4ff; --muted: #adb7d8;
-  --line: #303d63; --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #ff9abc; --ink-on-gold: #1b0c2c;
-  --shadow-hard: #00000088; --glow: #8befff22; --dots: #ffffff0a; --wip: #ff9abc;
+  --line: #303d63; --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #22d3ee; --ink-on-gold: #07151f;
+  --shadow-hard: #00000088; --glow: #8befff22; --dots: #ffffff0a; --wip: #ffc86b;
   --card: 17 24 44; --veil: 8 12 28; --veil-a: .62; --silhouette: #04060f;
   --stars: 1; --mote: #8befff; --rail: #68789d;
   color-scheme: dark;
@@ -50,7 +50,7 @@
 /* Header and style switch */
 [data-skin="rpg"] .masthead { border-bottom: 2px solid #303d63; background: #080c1c;
   --surface: #11182c; --sunken: #1b2340; --muted: #adb7d8; --strong: #faf4ff; --ink: #e2e6ff;
-  --accent: #8befff; --frame: #68789d; --gold: #ff9abc; --ink-on-gold: #1b0c2c; }
+  --accent: #8befff; --frame: #68789d; --gold: #22d3ee; --ink-on-gold: #07151f; }
 [data-skin="rpg"] .brand { color: var(--strong); font-size: 15px; text-transform: none; }
 [data-skin="rpg"] .header-links { font-size: 12px; }
 [data-skin="rpg"] .header-links a:hover { color: var(--accent); text-decoration: underline; }
@@ -65,8 +65,8 @@
 /* The opening is always a night city: local dark tokens keep copy readable in either appearance */
 [data-skin="rpg"] .rpg-opening { position: relative; padding: 52px 0 80px; isolation: isolate; color: #e2e6ff;
   --surface: #11182c; --sunken: #1b2340; --ink: #e2e6ff; --strong: #faf4ff; --muted: #adb7d8; --line: #303d63;
-  --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #ff9abc; --ink-on-gold: #1b0c2c; --glow: #8befff22;
-  --shadow-hard: #00000088; --card: 17 24 44; --veil: 8 12 28; --veil-a: .62; --wip: #ff9abc; }
+  --accent: #8befff; --frame: #68789d; --frame-inner: #11182c; --gold: #22d3ee; --ink-on-gold: #07151f; --glow: #8befff22;
+  --shadow-hard: #00000088; --card: 17 24 44; --veil: 8 12 28; --veil-a: .62; --wip: #ffc86b; }
 [data-skin="rpg"] .rpg-world { position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; margin-left: -50vw; overflow: hidden; pointer-events: none; background: #080c1c; }
 [data-skin="rpg"] .rpg-world > * { position: absolute; display: block; }
 [data-skin="rpg"] .rpg-scenery { inset: 0; height: auto; background: #080c1c url("/rpg/cyberpunk-city.png") center top / cover no-repeat; image-rendering: pixelated; }
@@ -90,8 +90,8 @@
 [data-skin="rpg"] .rpg-towers .tower { position: absolute; bottom: 0; width: 90px; height: 300px; background: var(--silhouette);
   clip-path: polygon(0 100%, 0 12%, 14% 12%, 14% 6%, 34% 6%, 34% 0, 62% 0, 62% 6%, 80% 6%, 80% 16%, 100% 16%, 100% 100%); }
 [data-skin="rpg"] .rpg-towers .tower::before, [data-skin="rpg"] .rpg-towers .tower::after { content: ""; position: absolute; width: 6px; height: 6px; }
-[data-skin="rpg"] .rpg-towers .tower::before { left: 22%; top: 34%; background: #8befff; box-shadow: 0 24px #8befff, 38px 48px #ff9abc, 38px 96px #8befff; }
-[data-skin="rpg"] .rpg-towers .tower::after { right: 22%; top: 58%; background: #ff9abc; box-shadow: -30px 40px #ffc86b; }
+[data-skin="rpg"] .rpg-towers .tower::before { left: 22%; top: 34%; background: #8befff; box-shadow: 0 24px #8befff, 38px 48px #8befff, 38px 96px #8befff; }
+[data-skin="rpg"] .rpg-towers .tower::after { right: 22%; top: 58%; background: #8befff; box-shadow: -30px 40px #ffc86b; }
 [data-skin="rpg"] .rpg-towers .tower:nth-child(1) { left: 0; width: 100px; height: 380px; }
 [data-skin="rpg"] .rpg-towers .tower:nth-child(2) { left: 100px; width: 80px; height: 250px; clip-path: polygon(0 100%, 0 10%, 30% 10%, 30% 0, 55% 0, 55% 10%, 100% 10%, 100% 100%); }
 [data-skin="rpg"] .rpg-towers .tower:nth-child(3) { left: 180px; width: 80px; height: 160px; clip-path: polygon(0 100%, 0 0, 70% 0, 70% 14%, 100% 14%, 100% 100%); }
@@ -206,9 +206,9 @@
 [data-skin="rpg"] .compact .project-card h3 { font-size: 1.2rem; }
 [data-skin="rpg"] .compact .project-content { padding: 18px 4px 6px; }
 [data-skin="rpg"] .compact .project-visual, [data-skin="rpg"] .compact > .project-card > .project-cover { border: 2px solid var(--line); }
-[data-skin="rpg"] .placeholder { background-color: #141f22; background-image: conic-gradient(#ffffff08 25%, transparent 0 50%, #ffffff08 0 75%, transparent 0); background-size: 16px 16px; color: #ece3cf; }
-[data-skin="rpg"] .placeholder-label, [data-skin="rpg"] .placeholder-bottom, [data-skin="rpg"] .placeholder-bottom > span { font-size: 12px; color: #cfd2bd; }
-[data-skin="rpg"] .monogram { color: #ece3cf; }
+[data-skin="rpg"] .placeholder { background-color: #101c30; background-image: conic-gradient(#ffffff08 25%, transparent 0 50%, #ffffff08 0 75%, transparent 0); background-size: 16px 16px; color: #e2e6ff; }
+[data-skin="rpg"] .placeholder-label, [data-skin="rpg"] .placeholder-bottom, [data-skin="rpg"] .placeholder-bottom > span { font-size: 12px; color: #adb7d8; }
+[data-skin="rpg"] .monogram { color: #e2e6ff; }
 [data-skin="rpg"] .no-results { border: 2px dashed var(--line); border-radius: 0; background: rgb(var(--card) / .85); }
 [data-skin="rpg"] .no-results button { border: 2px solid var(--frame); border-radius: 0; background: var(--gold); color: var(--ink-on-gold); font: 400 12px/1.4 var(--font-label); text-transform: uppercase; }
 

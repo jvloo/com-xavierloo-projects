@@ -113,7 +113,7 @@ return `<!doctype html>
 <link rel="canonical" href="https://projects.xavierloo.com/">
 <meta property="og:type" content="website"><meta property="og:title" content="${t.title}"><meta property="og:description" content="Products, contributions, and experiments by Xavier Loo."><meta property="og:url" content="https://projects.xavierloo.com/">
 <meta property="og:image" content="https://projects.xavierloo.com${escape(featured.images[0].src)}"><meta property="og:image:alt" content="${escape(featured.name)} map preview"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="${rpg ? '#f1eefc' : '#f8f9fb'}" media="(prefers-color-scheme: light)"><meta name="theme-color" content="${rpg ? '#080c1c' : '#060610'}" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="${rpg ? '#eef5fb' : '#f8f9fb'}" media="(prefers-color-scheme: light)"><meta name="theme-color" content="${rpg ? '#080c1c' : '#060610'}" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">${rpg ? '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&display=swap">' : ''}
 <script>try { const t = localStorage.getItem('projects.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
