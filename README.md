@@ -30,7 +30,7 @@ Client-side JavaScript adds search, category filters, screenshot galleries and a
 
 New visitors start in dark mode; saved Light, Dark or System choices are respected. `site/browse.css` provides the compact sticky filter row, shorter uncropped project cards and the native search palette (search icon, Ctrl/Command-K or `/`). The five filters keep all six content sections: Independent covers Side projects, Open source, and Apps & hackathons. Project totals are announced to assistive technology without taking visible toolbar space.
 
-RPG mode also loads `site/rpg/companion.js`, `companion.css` and the original pixel SVG sprite sheet `companions.svg`. A traveller and drone accompany the desktop chapter rail; smaller screens use a toolbar traveller. Six grounded chapter objects and poses follow the visible content. The original `city-block.svg` carries a static pixel streetscape across chapter headings; the traveller uses a 24×33 grid at exact 1×/2× sizes. The motion control pauses the decorative world and characters, native reduced-motion preferences take precedence, and open dialogs pause the background. These assets are not loaded in Clean mode.
+RPG mode loads `site/rpg/world-refinement.css` after the shared browsing styles. It keeps the original pixel-city artwork and pixel headings, with static scenery and no left-side character or timeline. All cards use a fixed outer height (300px desktop, 520px at 760px or narrower); View more / View less reveals the full description within a scrollable details region. Without JavaScript, full content remains readable at natural height.
 
 ```sh
 cd worker

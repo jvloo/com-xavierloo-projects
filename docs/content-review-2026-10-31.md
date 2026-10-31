@@ -150,3 +150,14 @@ Host checks confirm the 22 project entries retain all names, roles, full descrip
 ## Uniform Side projects card layout
 
 All 22 cards now share the Side projects layout: one full-width row per project above 760px, with a 52% preview pane on the left and details on the right. Direct placeholders use the same split. All cards stack vertically at 760px or narrower. The change applies to RPG and Clean through shared browsing CSS, while covers, gallery controls, group membership and project content remain unchanged. At 1280×800 all cards are horizontal and the tallest measures about 270px; 320px and 390px checks show stacked cards without horizontal overflow.
+
+
+## Selected pixel-city and equal-height card release
+
+This supersedes the companion and variable-height card presentation described above. The selected design retains the original pixel-city image and pixel headings. The left timeline and traveller are removed from the rendered page. No newly generated alternative city images are included in the release.
+
+All 22 cards, including placeholders, use the same fixed outer height: 300px above 760px, 520px on narrower layouts. View more / View less switches between a short summary and the original full description inside an independently scrollable details area, without moving surrounding cards. Controls carry expanded state and a unique region association. Entries with no additional content or overflow do not need a toggle. No-JavaScript rendering exposes full descriptions at natural height.
+
+The gallery keeps keyboard focus inside the dialog when reaching the first or last image, including two-image galleries; thumbnail focus is preserved. The intro contains only the portrait, name, professional headline and LinkedIn link. User-shared personal background is excluded from rendered copy and the generation template.
+
+Browser checks covered all 22 card heights, expanded desktop and phone reading, placeholders, 390px and 320px widths without horizontal overflow, and gallery boundary focus. The original screenshot/gallery data and single approved Segi image remain unchanged. The user accepted the card interaction and authorized publication. Chapter scenery needs a separate art pass; this release does not claim that feedback is resolved.

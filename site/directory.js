@@ -8,6 +8,48 @@ const toolbar = document.querySelector('.browse-tools');
 const sentinel = document.querySelector('#browse-sentinel');
 let category = 'all';
 
+// Equal-height cards: JS marks each card enhanced (fixed height via browse.css) and adds a real View more/less button.
+// The full original description lives in .project-full; both blocks are toggled with hidden.
+const cardToggles = cards.map(card => {
+  const body = card.querySelector('.project-body');
+  const content = card.querySelector('.project-content');
+  if (!body || !content) return null;
+  const full = body.querySelector('.project-full');
+  const summary = body.querySelector('.project-summary');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'card-toggle';
+  button.setAttribute('aria-controls', body.id);
+  button.setAttribute('aria-expanded', 'false');
+  button.textContent = 'View more';
+  card.classList.add('is-enhanced');
+  if (full) full.hidden = true;
+  content.append(button);
+  const set = expanded => {
+    card.classList.toggle('is-expanded', expanded);
+    button.setAttribute('aria-expanded', String(expanded));
+    button.textContent = expanded ? 'View less' : 'View more';
+    if (full) { full.hidden = !expanded; summary.hidden = expanded; }
+    if (expanded) { body.tabIndex = 0; body.setAttribute('role', 'region'); body.setAttribute('aria-label', `${card.querySelector('h3').textContent} details`); }
+    else { body.removeAttribute('tabindex'); body.removeAttribute('role'); body.removeAttribute('aria-label'); }
+    body.scrollTop = 0;
+    measure();
+  };
+  const measure = () => {
+    if (card.hidden || card.offsetParent === null) return;
+    if (!full && !card.classList.contains('is-expanded')) button.hidden = body.scrollHeight <= body.clientHeight + 1;
+    else button.hidden = false;
+  };
+  button.addEventListener('click', () => set(!card.classList.contains('is-expanded')));
+  button.hidden = !full;
+  return measure;
+});
+const measureCards = () => cardToggles.forEach(measure => measure?.());
+measureCards();
+window.addEventListener('resize', measureCards);
+document.addEventListener('directory:updated', measureCards);
+document.fonts?.ready.then(measureCards);
+
 // Each tab maps to a set of content groups (data-groups); "all" has none and shows everything.
 const categoryGroups = new Map(filters.map(button => [button.dataset.filter, button.dataset.groups ? new Set(button.dataset.groups.split(' ')) : null]));
 
@@ -245,8 +287,23 @@ function showImage(index) {
   const items = galleryPages[index].items;
   const current = items[0];
   const paired = currentGallery.layout === 'paired' && !!current.mobile;
-  previous.disabled = index === 0;
-  next.disabled = index === galleryPages.length - 1;
+  const previousDisabled = index === 0;
+  const nextDisabled = index === galleryPages.length - 1;
+  // Enable first so a focus destination is always enabled, then move focus off a
+  // nav button before it becomes disabled (disabling a focused button drops focus to BODY).
+  if (!previousDisabled) previous.disabled = false;
+  if (!nextDisabled) next.disabled = false;
+  if (dialog.open) {
+    const active = document.activeElement;
+    if ((active === previous && previousDisabled) || (active === next && nextDisabled)) {
+      const target = active === previous
+        ? (!nextDisabled ? next : document.querySelector('#gallery-close'))
+        : (!previousDisabled ? previous : document.querySelector('#gallery-close'));
+      target.focus({ preventScroll: true });
+    }
+  }
+  previous.disabled = previousDisabled;
+  next.disabled = nextDisabled;
   thumbs.querySelectorAll('button').forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
   if (!paired) { renderImage(index, false); return; }
   const label = `${index + 1} / ${galleryPages.length}${current.title ? ` · ${current.title}` : ''}`;

@@ -1,0 +1,180 @@
+/* Pixel city world refinement. Loaded last; every rule scoped to html[data-skin="rpg"] #directory (or the skin root).
+   Scenery is decorative only; screenshots and portrait are never filtered. Card sizing is defined in browse.css. */
+
+html[data-skin="rpg"] {
+  --font-head: "Pixelify Sans", var(--font-mono);
+  --font-label: "JetBrains Mono", ui-monospace, monospace;
+  --pw-cyan: #7fe7ff; --pw-ice: #eaf8ff; --pw-slate: 12 20 32; --pw-hair: rgb(127 231 255 / .22);
+}
+html[data-skin="rpg"][data-theme="light"] { --pw-hair: rgb(0 107 128 / .28); }
+
+/* Typography: Inter for titles, mono for eyebrows; Pixelify only on the small brand accent */
+html[data-skin="rpg"] #directory .intro-copy h1, html[data-skin="rpg"] #directory .featured-title,
+html[data-skin="rpg"] #directory .page-title, html[data-skin="rpg"] #directory .section-head h2,
+html[data-skin="rpg"] #directory .project-card h3, html[data-skin="rpg"] #directory .personal-footer h2,
+html[data-skin="rpg"] #directory .footer-title > p:not(.eyebrow), html[data-skin="rpg"] #directory .monogram,
+html[data-skin="rpg"] #directory .no-results h2, html[data-skin="rpg"] .gallery-header h2 {
+  font-family: var(--font-head); letter-spacing: -.02em; text-shadow: none; overflow-wrap: normal;
+}
+html[data-skin="rpg"] .brand { font-family: "Pixelify Sans", var(--font-label); font-size: 15px; letter-spacing: .02em; }
+html[data-skin="rpg"] #directory .eyebrow, html[data-skin="rpg"] #directory .intro-eyebrow,
+html[data-skin="rpg"] #directory .featured-eyebrow, html[data-skin="rpg"] #directory .label {
+  font: 500 12px/1.5 var(--font-label); letter-spacing: .14em; text-transform: uppercase;
+}
+html[data-skin="rpg"] #directory .eyebrow::before, html[data-skin="rpg"] #directory .project-role::before { content: none; }
+html[data-skin="rpg"] .style-switch a[aria-current="page"]::before,
+html[data-skin="rpg"] #directory .category-nav button[aria-pressed="true"]::before { content: none; }
+
+/* Opening: full-bleed architectural night world, quiet dark left for copy */
+html[data-skin="rpg"] .rpg-opening { padding: clamp(72px, 10vw, 128px) 0 clamp(64px, 8vw, 104px); color: #d6e6ee; }
+html[data-skin="rpg"] .rpg-world { background: #050911; }
+html[data-skin="rpg"] .rpg-scenery {
+  background: #050911 url("/rpg/cyberpunk-city.png") 68% 30% / cover no-repeat; image-rendering: pixelated; filter: none;
+}
+html[data-skin="rpg"] .rpg-veil {
+  background:
+    linear-gradient(90deg, rgb(4 8 15 / .94) 0%, rgb(4 8 15 / .82) 30%, rgb(4 8 15 / .35) 58%, rgb(4 8 15 / .1) 80%),
+    linear-gradient(180deg, rgb(4 8 15 / .55) 0%, transparent 22%, transparent 62%, rgb(4 8 15 / .9) 92%, var(--bg) 100%),
+    radial-gradient(60% 50% at 78% 30%, rgb(127 231 255 / .1), transparent 70%);
+}
+html[data-skin="rpg"] .rpg-world::after {
+  content: ""; position: absolute; inset: auto 0 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(127 231 255 / .45) 40%, transparent);
+}
+html[data-skin="rpg"] .rpg-towers, html[data-skin="rpg"] .rpg-mote, html[data-skin="rpg"] .rpg-stars,
+html[data-skin="rpg"] .rpg-waypoint, html[data-skin="rpg"] #directory .rpg-waypoint { display: none !important; animation: none; }
+
+/* Name-first intro */
+html[data-skin="rpg"] #directory .intro-card { align-items: flex-start; gap: 24px; max-width: 640px; }
+html[data-skin="rpg"] #directory .intro-card > img {
+  width: 96px; height: 96px; border: 1px solid var(--pw-hair); box-shadow: 0 0 0 4px rgb(4 8 15 / .6); filter: none;
+}
+html[data-skin="rpg"] #directory .intro-eyebrow { color: var(--pw-cyan); margin-bottom: 10px; }
+html[data-skin="rpg"] #directory .intro-copy h1 {
+  color: var(--pw-ice); font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 650; line-height: 1.02;
+}
+html[data-skin="rpg"] #directory .intro-headline { margin-top: 14px; color: #e3eff5; font: 500 18px/1.5 var(--font-body); max-width: 46ch; }
+html[data-skin="rpg"] #directory .intro-origin { margin-top: 10px; color: #a9bfcc; font-size: 16px; line-height: 1.65; max-width: 52ch; text-shadow: none; }
+html[data-skin="rpg"] #directory .intro-link {
+  margin-top: 20px; border: 1px solid rgb(127 231 255 / .4); background: rgb(4 8 15 / .5); color: var(--pw-ice);
+  font: 500 13px/2.4 var(--font-label); letter-spacing: .04em;
+}
+html[data-skin="rpg"] #directory .intro-link:hover { background: rgb(127 231 255 / .12); color: #fff; border-color: var(--pw-cyan); }
+
+/* LOKA hero: balanced, dark slate glass */
+html[data-skin="rpg"] #directory .featured-hero { margin-top: clamp(56px, 7vw, 88px); gap: clamp(28px, 4vw, 48px); }
+html[data-skin="rpg"] #directory .featured-eyebrow { color: var(--pw-cyan); }
+html[data-skin="rpg"] #directory .featured-eyebrow > span { background: var(--pw-cyan); }
+html[data-skin="rpg"] #directory .featured-title { color: var(--pw-ice); font-size: clamp(2.25rem, 4.6vw, 4rem); font-weight: 650; line-height: 1.04; max-width: 14ch; }
+html[data-skin="rpg"] #directory .featured-period { color: var(--pw-cyan); }
+html[data-skin="rpg"] #directory .featured-description { color: #c5d6e0; }
+html[data-skin="rpg"] #directory .featured-meta, html[data-skin="rpg"] #directory .featured-preview figcaption { color: #93abb9; }
+html[data-skin="rpg"] #directory .featured-actions a {
+  border: 1px solid rgb(127 231 255 / .4); box-shadow: none; font: 500 13px/1.4 var(--font-label); letter-spacing: .06em;
+}
+html[data-skin="rpg"] #directory .featured-actions a:active { transform: none; box-shadow: none; }
+html[data-skin="rpg"] #directory .featured-primary { background: var(--pw-cyan); color: #04121a; border-color: var(--pw-cyan); }
+html[data-skin="rpg"] #directory .featured-secondary { background: rgb(4 8 15 / .55); color: var(--pw-ice); }
+html[data-skin="rpg"] #directory .featured-window, html[data-skin="rpg"] #directory .featured-phone {
+  border: 1px solid rgb(127 231 255 / .28); background: rgb(var(--pw-slate)); box-shadow: 0 30px 60px -20px rgb(0 0 0 / .7), 0 0 0 1px rgb(4 8 15 / .6);
+}
+html[data-skin="rpg"] #directory .featured-phone { border-radius: 14px; }
+html[data-skin="rpg"] #directory .featured-window-bar { background: #0b1420; color: #b5cad6; border-bottom-color: rgb(127 231 255 / .16); font: 500 12px/1.5 var(--font-label); letter-spacing: .08em; }
+html[data-skin="rpg"] #directory .window-lights i { border-radius: 50%; background: rgb(127 231 255 / .55); }
+html[data-skin="rpg"] #directory .featured-window img, html[data-skin="rpg"] #directory .featured-phone img { filter: none; }
+
+/* Chapter heads: distant roofline outline + coordinate hairline, behind headers only */
+html[data-skin="rpg"] #directory .section-head { padding: 40px 0 18px; margin-bottom: 24px; }
+html[data-skin="rpg"] #directory .section-head::before {
+  inset: 0 0 1px; opacity: .55; filter: none;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 120' fill='none' stroke='%237fe7ff' stroke-opacity='.45' stroke-width='1'%3E%3Cpath d='M0 120V96h40V70h18v-28h6v28h24v50M120 120V60l22-14 22 14v60M190 120V34h10V8h4v26h10v86M240 120V82h60V52h30v68M360 120V64h14l10-30 10 30h14v56M440 120V20h4V2h2v18h4v100M480 120V90h70V58h22v62M600 120V44l30-20 30 20v76M680 120V74h40'/%3E%3Cpath stroke-dasharray='2 6' d='M0 58h720M0 28h720'/%3E%3C/svg%3E") right bottom / min(720px, 70%) auto no-repeat;
+}
+html[data-skin="rpg"][data-theme="dark"] #directory .section-head::before { opacity: .5; }
+html[data-skin="rpg"] #directory .section-head::after { height: 1px; background: linear-gradient(90deg, var(--accent), var(--pw-hair) 35%, transparent); }
+html[data-skin="rpg"] #directory .section-head h2 { color: var(--strong); font-size: clamp(1.75rem, 3.2vw, 2.4rem); font-weight: 650; }
+html[data-skin="rpg"] #directory .section-head .eyebrow { color: var(--accent); }
+html[data-skin="rpg"] #directory .section-count {
+  width: auto; height: auto; padding: 4px 8px; background: transparent; color: var(--accent); border: 1px solid var(--pw-hair);
+  box-shadow: none; font: 500 12px/1.4 var(--font-label); letter-spacing: .08em;
+}
+
+/* Cards: slate panels, subtle hover border only (no sizing overrides) */
+html[data-skin="rpg"] #directory .project-card { border: 1px solid var(--line); box-shadow: none; transition: border-color .2s; }
+html[data-skin="rpg"] #directory .project-card:hover { border-color: var(--pw-hair); }
+html[data-skin="rpg"] #directory .project-card img { filter: none; }
+html[data-skin="rpg"] #directory .project-role { color: var(--accent); font: 500 12px/1.5 var(--font-label); letter-spacing: .08em; text-transform: uppercase; }
+html[data-skin="rpg"] #directory .project-card h3 { font-weight: 600; letter-spacing: -.01em; }
+html[data-skin="rpg"] #directory .tags li { background: transparent; border-color: var(--line); }
+html[data-skin="rpg"] #directory .cover-navigation button, html[data-skin="rpg"] dialog button {
+  border: 1px solid var(--line); background: transparent; font: 500 12px/1.4 var(--font-label); letter-spacing: .06em;
+}
+html[data-skin="rpg"] #directory .cover-navigation button:hover:enabled, html[data-skin="rpg"] dialog button:hover {
+  background: rgb(127 231 255 / .1); color: var(--strong); border-color: var(--accent);
+}
+
+/* "View more" (class owned by other worker; matched broadly, style only) */
+html[data-skin="rpg"] #directory .project-card [class*="more"]:is(button, a),
+html[data-skin="rpg"] #directory .project-card button[aria-expanded] {
+  border: 1px solid var(--pw-hair); border-radius: 0; background: transparent; color: var(--accent);
+  font: 500 12px/1.4 var(--font-label); letter-spacing: .08em; text-transform: uppercase; box-shadow: none;
+}
+html[data-skin="rpg"] #directory .project-card [class*="more"]:is(button, a):hover,
+html[data-skin="rpg"] #directory .project-card button[aria-expanded]:hover { border-color: var(--accent); background: rgb(127 231 255 / .08); }
+
+/* Browse tools / nav */
+html[data-skin="rpg"] #directory .browse-tools { border-bottom: 1px solid var(--line); }
+html[data-skin="rpg"] #directory .search-box, html[data-skin="rpg"] #directory .search-box kbd { border-width: 1px; }
+html[data-skin="rpg"] #directory .category-nav button { border-bottom-width: 2px; letter-spacing: .06em; }
+html[data-skin="rpg"] #directory .category-nav button[aria-pressed="true"] { background: transparent; border-bottom-color: var(--accent); }
+html[data-skin="rpg"] .style-switch { border-width: 1px; }
+html[data-skin="rpg"] .style-switch a + a { border-left-width: 1px; }
+html[data-skin="rpg"] .style-switch a[aria-current="page"] { background: var(--accent); color: var(--bg); }
+html[data-skin="rpg"] .masthead { border-bottom: 1px solid rgb(127 231 255 / .14); background: #050911; }
+
+/* Footer + dialog */
+html[data-skin="rpg"] #directory .footer-title > p:not(.eyebrow) { font-weight: 650; font-size: clamp(2rem, 5vw, 3.2rem); }
+html[data-skin="rpg"] #directory .jumbo-footer::before { border-bottom-width: 1px; background: none; }
+html[data-skin="rpg"] dialog, html[data-skin="rpg"] .gallery-desktop-screen, html[data-skin="rpg"] .gallery-stage { border-width: 1px; box-shadow: 0 30px 80px rgb(0 0 0 / .6); }
+html[data-skin="rpg"] .gallery-phone-screen, html[data-skin="rpg"] .gallery-phone-scroll { border-width: 2px; border-radius: 14px; box-shadow: none; }
+html[data-skin="rpg"] .gallery-thumbs button[aria-pressed="true"] { border: 2px solid var(--accent); }
+
+/* Focus: crisp cyan ring */
+html[data-skin="rpg"] a:focus-visible, html[data-skin="rpg"] button:focus-visible, html[data-skin="rpg"] select:focus-visible,
+html[data-skin="rpg"] .search-box:focus-within { outline: 2px solid var(--pw-cyan); outline-offset: 3px; box-shadow: 0 0 0 5px rgb(4 8 15 / .85); }
+html[data-skin="rpg"][data-theme="light"] :is(a, button, select):focus-visible { outline-color: #006b80; box-shadow: 0 0 0 5px #fff; }
+
+/* Light: opening stays night; chapter roofline uses darker teal */
+html[data-skin="rpg"][data-theme="light"] #directory .section-head::before { opacity: .35; }
+html[data-skin="rpg"][data-theme="light"] #directory .section-count { color: #006b80; }
+
+@media (max-width: 720px) {
+  html[data-skin="rpg"] .rpg-scenery { background-position: 72% 30%; }
+  html[data-skin="rpg"] .rpg-veil { background: linear-gradient(180deg, rgb(4 8 15 / .55), rgb(4 8 15 / .82) 45%, rgb(4 8 15 / .95) 90%, var(--bg)); }
+  html[data-skin="rpg"] #directory .intro-card { flex-direction: column; gap: 16px; }
+  html[data-skin="rpg"] #directory .intro-card > img { width: 80px; height: 80px; }
+  html[data-skin="rpg"] #directory .section-head::before { background-size: auto, 100% auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-skin="rpg"] *, html[data-skin="rpg"] *::before, html[data-skin="rpg"] *::after { animation: none !important; transition: none !important; }
+}
+
+/* User correction: keep the RPG pixel identity, with more refined architecture. */
+html[data-skin="rpg"] .rpg-opening { padding: 56px 0 72px; }
+html[data-skin="rpg"] #directory .intro-copy h1 { font-size: 48px; font-weight: 700; }
+html[data-skin="rpg"] #directory .featured-hero { margin-top: 48px; }
+html[data-skin="rpg"] #directory .featured-title { font-weight: 700; }
+html[data-skin="rpg"] #directory .section-head h2 { font-weight: 700; }
+html[data-skin="rpg"] #directory .section-head > div:first-child { padding-right: 0; }
+html[data-skin="rpg"] #directory .rpg-scenery { background-position: 65% top; }
+html[data-skin="rpg"] .rpg-veil { background: linear-gradient(90deg, #04080fc9, #04080f85 35%, #04080f22 78%), linear-gradient(180deg, #04080f00 58%, var(--bg) 100%); }
+html[data-skin="rpg"] .personal-footer h2, html[data-skin="rpg"] .footer-title > p:not(.eyebrow) { font-family: var(--font-head); font-weight: 700; }
+html[data-skin="rpg"] .jumbo-footer::before { background: none; border-bottom-width: 1px; }
+@media(max-width:700px) { html[data-skin="rpg"] .rpg-opening { padding-top: 32px; } html[data-skin="rpg"] #directory .intro-copy h1 { font-size: 34px; } html[data-skin="rpg"] #directory .intro-card > img { width: 72px; height: 72px; } }
+
+/* Preview keeps the original pixel-city artwork per user preference. */
+html[data-skin="rpg"] #directory .project-section::before { content: none !important; }
+html[data-skin="rpg"] #directory .rpg-scenery { background-position: center top; }
+html[data-skin="rpg"] #directory .project-card.is-enhanced .card-toggle { min-height: 40px; }
+@media(max-width:760px) { html[data-skin="rpg"] #directory .project-card.is-enhanced .card-toggle { min-height: 44px; } }

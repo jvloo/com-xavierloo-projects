@@ -16,7 +16,8 @@ for (const file of [rpgStylesheet, rpgBanner, 'rpg/city-block.svg', 'rpg/compani
   await access(path.join(site, file)).catch(() => { throw new Error(`Missing required RPG asset: site/${file}`); });
 }
 const rpgStyleRevision = await revision(rpgStylesheet);
-// browse.css loads last so its compact toolbar/card/search rules win over directory.css and rpg.css.
+const worldStyleRevision = await revision('rpg/world-refinement.css');
+// Shared browsing rules follow the base skin; world-refinement.css adds the selected RPG appearance.
 const browseRevision = await revision('browse.css');
 const companionScriptRevision = await revision('rpg/companion.js');
 const companionStyleRevision = await revision('rpg/companion.css');
@@ -85,6 +86,8 @@ for (const group of browseTabs.flatMap(tab => tab.groups)) {
 if (browseTabs.flatMap(tab => tab.groups).length !== groups.length) throw new Error('Browse tabs must cover every content group exactly once.');
 const external = (link, context) => `<a href="${escape(link.url)}" aria-label="${escape(`${link.label}: ${context}`)}">${escape(link.label)}<span aria-hidden="true"> ↗</span></a>`;
 const card = project => {
+  const summary = project.summary || firstSentence(project.description);
+  const hasFull = project.description.trim() !== summary.trim();
   const hasImages = project.images.length > 0;
   const coverImage = project.cover || project.images[0];
   const cover = hasImages
@@ -95,11 +98,14 @@ const card = project => {
     <div class="project-content">
       <p class="project-role">${escape(project.role)}</p>
       <h3>${escape(project.name)}</h3>
-      <p class="project-description">${escape(project.summary || firstSentence(project.description))}</p>
-      <ul class="tags" aria-label="Project topics">${project.tags.map(tag => `<li>${escape(tag)}</li>`).join('')}</ul>
-      ${project.links.length ? `<div class="project-links">${project.links.map(link => external(link, project.name)).join('')}</div>` : `<p class="unpublished">${escape(project.linkNote || 'No public project link yet')}</p>`}
-      ${project.press?.length ? `<p class="press"><span>Press</span> ${project.press.map(link => external(link, project.name)).join('')}</p>` : ''}
-      ${project.note ? `<p class="project-note">${escape(project.note)}</p>` : ''}
+      <div class="project-body" id="${project.id}-details">
+        <p class="project-description project-summary">${escape(summary)}</p>
+        ${hasFull ? `<p class="project-description project-full">${escape(project.description)}</p>` : ''}
+        <ul class="tags" aria-label="Project topics">${project.tags.map(tag => `<li>${escape(tag)}</li>`).join('')}</ul>
+        ${project.links.length ? `<div class="project-links">${project.links.map(link => external(link, project.name)).join('')}</div>` : `<p class="unpublished">${escape(project.linkNote || 'No public project link yet')}</p>`}
+        ${project.press?.length ? `<p class="press"><span>Press</span> ${project.press.map(link => external(link, project.name)).join('')}</p>` : ''}
+        ${project.note ? `<p class="project-note">${escape(project.note)}</p>` : ''}
+      </div>
     </div>
   </article>`;
 };
@@ -147,7 +153,7 @@ return `<!doctype html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">${rpg ? '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap">' : ''}
 <script>try { const t = localStorage.getItem('projects.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; else if (t === 'system') delete document.documentElement.dataset.theme; } catch {} { const m = document.querySelector('#theme-color'); const t = document.documentElement.dataset.theme; m.content = m.dataset[t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light']; }</script>
-<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/rpg.css?v=${rpgStyleRevision}">` : ''}<link rel="stylesheet" href="/browse.css?v=${browseRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/companion.css?v=${companionStyleRevision}">` : ''}<script src="/directory.js?v=${scriptRevision}" defer></script>${rpg ? `<script src="/rpg/companion.js?v=${companionScriptRevision}" data-sprite="/rpg/companions.svg?v=${companionSpriteRevision}" defer></script>` : ''}
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/rpg.css?v=${rpgStyleRevision}">` : ''}<link rel="stylesheet" href="/browse.css?v=${browseRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/world-refinement.css?v=${worldStyleRevision}">` : ''}<script src="/directory.js?v=${scriptRevision}" defer></script>
 </head><body>
 <a class="skip-link" href="#all-projects">Skip to projects</a>
 <header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="${rpg ? '/' : '/clean/'}">// projects</a><div class="masthead-actions"><nav class="style-switch" aria-label="Page style"><a href="/"${rpg ? ' aria-current="page"' : ''}>RPG</a><a href="/clean/"${rpg ? '' : ' aria-current="page"'}>Clean</a></nav><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></div></header>
