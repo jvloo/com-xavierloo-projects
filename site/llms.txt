@@ -2,16 +2,16 @@
 
 > Companies I co-founded, products I built, and work I contributed to.
 
-## Built & co-founded
+## Built end-to-end
 
 - [Artmeet](https://projects.xavierloo.com/#artmeet): Co-founder & CTO. A marketplace connecting creative designers with recruiters and freelance opportunities. I built the platform across portfolios, applicant tracking, interviews, competitions, and community features.
 - [SenangPrint](https://projects.xavierloo.com/#senangprint): Co-founder · Solo builder. A B2B printing platform for complex print specifications and vendor workflows. I built the commerce engine, dynamic pricing, vendor routing, production tracking, and internal ERP tools.
 - [TheraLink](https://projects.xavierloo.com/#theralink): Solo developer · Contract. A speech therapy marketplace for Malaysia. Built the platform for discovering therapists and booking virtual, clinic, and home-visit appointments.
+- [Segi Fresh R&D](https://projects.xavierloo.com/#segi): Solo builder · R&D. Built a fresh-food shelf monitoring and alerting system from proof of concept to pilot. Combined vision-language models, object detection, IP cameras, and Jetson edge hardware to monitor shelf conditions.
 
-## Selected contributions
+## Contributions
 
 - [Wiseway AI](https://projects.xavierloo.com/#wiseway): Senior software engineer. Worked across the core property platform, AI integrations, and infrastructure. Built WiseProp, a streaming property-feasibility chat product, and WisePower, a solar-energy adviser for Australian homes.
-- [Segi Fresh R&D](https://projects.xavierloo.com/#segi): Solo builder · R&D. Built a fresh-food shelf monitoring and alerting system from proof of concept to pilot. Combined vision-language models, object detection, IP cameras, and Jetson edge hardware to monitor shelf conditions.
 - [UniLah](https://projects.xavierloo.com/#unilah): Technical lead. Led technical architecture and development across mobile and web for a Malaysian student community platform. The student app is now Honey Lemon by UniLah.
 - [Codevio partner projects](https://projects.xavierloo.com/#codevio): Technical delivery & engineering. Led client delivery with business analysts, freelance designers, and developers. Built .NET APIs, web apps, admin portals, dashboards, and integrations with external systems and devices.
 

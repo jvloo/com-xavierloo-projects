@@ -24,7 +24,7 @@ node scripts/build.mjs
 python -m http.server 4174 --directory site
 ```
 
-Client-side JavaScript adds search, category filters, screenshot galleries and an appearance selector. Project content, outgoing links and native earlier-work expansion remain available without it.
+Client-side JavaScript adds search, category filters, screenshot galleries and an appearance selector. Project content, outgoing links and all earlier-work cards remain available without it.
 
 ```sh
 cd worker

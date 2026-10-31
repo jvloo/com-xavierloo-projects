@@ -97,3 +97,18 @@ At Xavier's request, LOKA now has three 1600×1000 presentation images: Explore 
 Planner shows the real computed driving route from Sunway Velocity Mall to Mid Valley Megamall. Navigate shows the same trip just beyond halfway, with public coordinates replayed as simulated GPS. The composition and caption label it as a demo, not a recorded drive or physical navigation validation. Route estimates and unknown toll information are preserved from the interface. OpenStreetMap/OpenMapTiles attribution is visible in the images and gallery.
 
 The capture session used an isolated origin with account/report mutations blocked. No personal saved trip or real device location appears in the captures. The synthetic trip and saved fix were cleared, navigation ended, and GPS and viewport overrides removed. Source and composition hashes are recorded in [LOKA media provenance](loka-media-provenance.json). Manual carousel controls remain unchanged.
+
+## Gallery behaviour update (supersedes the composite-based LOKA gallery above)
+
+- **Covers are separate from gallery images.** A project may define a `cover`. LOKA's directory card keeps the existing Explore desktop-and-mobile composite (`loka-explore-desktop-mobile.jpg`) as its cover; it has no cover carousel arrows and its count reads "3 views". The composites are no longer gallery images.
+- **LOKA gallery** uses the separate unaltered desktop and mobile screenshots for Explore, Planner and Navigate (`loka-desktop-*.jpg`, `loka-mobile-*.jpg`). Desktop and mobile always change together; each has its own full-size link. Source screenshot bytes are unchanged; the three desktop/mobile pairs were captured at 1440×900 and 390×844 viewports.
+- **Hero** shows the raw Explore desktop screenshot inside one browser frame, with the raw Explore phone screenshot floating over its lower-right corner. Both open the gallery at Explore. The hero now follows the page's light/dark theme instead of a fixed green panel.
+- **Mobile-only galleries** (currently UniLah) show up to three phone screenshots per page on viewports wider than 700px and one per page at 700px or narrower. The current screenshot position is kept when the viewport crosses that breakpoint. Each phone frame scrolls independently, so long images can be read in full, and each has its own full-size link.
+- **Single desktop galleries** keep manual navigation, thumbnails, keyboard arrows and the scrollable treatment for very tall images.
+- **Earlier work** is no longer collapsed. All earlier-work cards are always visible, including without JavaScript; search and category filtering are unchanged.
+
+Capture conditions: screenshots came from the public app through an isolated, write-blocking loopback proxy. Navigation GPS was simulated just beyond halfway from Sunway Velocity Mall to Mid Valley Megamall; it is not a recorded drive. These notes describe the implementation; browser acceptance checks are performed separately.
+
+## Project grouping refinement
+
+The opening sequence is the personal introduction, featured LOKA project, then Built end-to-end, Contributions, Side projects, Open source, Apps & hackathons, and Earlier work. Segi Fresh belongs with the four end-to-end builds; Contributions contains Wiseway, UniLah and Codevio. Roles remain explicit so co-founding, contracting and employment are not conflated. Earlier work is fully expanded.

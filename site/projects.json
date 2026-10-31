@@ -9,23 +9,23 @@
   "groups": [
     {
       "id": "built",
-      "label": "Built & co-founded",
+      "label": "Built end-to-end",
       "short": "Built",
-      "intro": "Companies I co-founded and products I built end-to-end.",
-      "layout": "featured"
+      "intro": "Products I built end-to-end, as a co-founder, solo builder or contract developer.",
+      "layout": "standard"
     },
     {
       "id": "contributions",
-      "label": "Selected contributions",
+      "label": "Contributions",
       "short": "Contributions",
-      "intro": "Products and teams I helped move forward.",
-      "layout": "standard"
+      "intro": "Products and teams I contributed to across engineering and delivery.",
+      "layout": "featured"
     },
     {
       "id": "side",
       "label": "Side projects",
       "short": "Side projects",
-      "intro": "Independent products I keep exploring.",
+      "intro": "Independent products I build and explore.",
       "layout": "wide"
     },
     {
@@ -47,8 +47,7 @@
       "label": "Earlier work",
       "short": "Earlier work",
       "intro": "A few of the projects that started it all.",
-      "layout": "compact",
-      "collapsed": true
+      "layout": "compact"
     }
   ],
   "projects": [
@@ -231,7 +230,7 @@
     },
     {
       "id": "segi",
-      "group": "contributions",
+      "group": "built",
       "name": "Segi Fresh R&D",
       "role": "Solo builder · R&D",
       "kind": "Retail vision pilot",
@@ -277,15 +276,18 @@
           "src": "/media/unilah-app-home.png",
           "caption": "UniLah app: Home design from Figma, with the original sample profile",
           "source": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=1983-57028",
-          "portrait": true
+          "portrait": true,
+          "title": "Home"
         },
         {
           "src": "/media/unilah-app-deals.png",
           "caption": "UniLah app: the original UniDeals design, exported from Figma",
           "source": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=647-8199",
-          "portrait": true
+          "portrait": true,
+          "title": "UniDeals"
         }
-      ]
+      ],
+      "galleryLayout": "mobile"
     },
     {
       "id": "codevio",
@@ -323,25 +325,47 @@
       ],
       "images": [
         {
-          "src": "/media/loka-explore-desktop-mobile.jpg",
-          "caption": "Explore — LOKA's desktop and mobile map views, presented together. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+          "src": "/media/loka-desktop-explore.jpg",
+          "title": "Explore",
+          "caption": "Explore — LOKA's desktop and mobile map views.",
           "source": "https://lokamaps.app/",
-          "attribution": true
+          "attribution": true,
+          "mobile": {
+            "src": "/media/loka-mobile-explore.jpg",
+            "caption": "LOKA explore on mobile."
+          }
         },
         {
-          "src": "/media/loka-planner-desktop-mobile.jpg",
-          "caption": "Planner — Sunway Velocity Mall to Mid Valley Megamall. Desktop and mobile driving-route preview, captured October 2026.",
+          "src": "/media/loka-desktop-planner.jpg",
+          "title": "Planner",
+          "caption": "Planner — Sunway Velocity Mall to Mid Valley Megamall. Desktop and mobile driving-route preview.",
           "source": "https://lokamaps.app/",
-          "attribution": true
+          "attribution": true,
+          "mobile": {
+            "src": "/media/loka-mobile-planner.jpg",
+            "caption": "LOKA planner on mobile."
+          }
         },
         {
-          "src": "/media/loka-navigate-desktop-mobile.jpg",
-          "caption": "Navigate — a simulated GPS driving demo from Sunway Velocity Mall to Mid Valley Megamall, just beyond halfway through the trip. Desktop and mobile views.",
+          "src": "/media/loka-desktop-navigate.jpg",
+          "title": "Navigate",
+          "caption": "Navigate — simulated GPS driving from Sunway Velocity Mall to Mid Valley Megamall, just beyond halfway through the trip.",
           "source": "https://lokamaps.app/",
-          "attribution": true
+          "attribution": true,
+          "mobile": {
+            "src": "/media/loka-mobile-navigate.jpg",
+            "caption": "LOKA navigate on mobile — simulated GPS demo."
+          }
         }
       ],
-      "featuredSummary": "A map for exploring Malaysia. Find places and plan your next journey."
+      "featuredSummary": "A map for exploring Malaysia. Find places and plan your next journey.",
+      "cover": {
+        "src": "/media/loka-explore-desktop-mobile.jpg",
+        "caption": "Explore — LOKA's desktop and mobile map views, presented together. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+        "source": "https://lokamaps.app/",
+        "attribution": true
+      },
+      "galleryLayout": "paired"
     },
     {
       "id": "agentisan",
