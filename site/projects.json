@@ -1,4 +1,11 @@
 {
+  "intro": {
+    "name": "Xavier Loo",
+    "headline": "Senior software engineer · AI/ML engineer · Former startup founder",
+    "portrait": "/media/xavier-loo.jpg",
+    "url": "https://www.linkedin.com/in/xavier-loo/"
+  },
+  "featuredProject": "loka",
   "groups": [
     {
       "id": "built",
@@ -331,7 +338,8 @@
           "source": "https://lokamaps.app/",
           "attribution": true
         }
-      ]
+      ],
+      "featuredSummary": "A map for exploring Malaysia. Find places and plan your next journey."
     },
     {
       "id": "agentisan",

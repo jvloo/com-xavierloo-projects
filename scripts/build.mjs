@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const site = path.join(root, 'site');
-const { groups, projects } = JSON.parse(await readFile(path.join(site, 'projects.json'), 'utf8'));
+const { intro, featuredProject, groups, projects } = JSON.parse(await readFile(path.join(site, 'projects.json'), 'utf8'));
 const revision = async file => createHash('sha256').update(await readFile(path.join(site, file))).digest('hex').slice(0, 12);
 const scriptRevision = await revision('directory.js');
 const styleRevision = await revision('directory.css');
@@ -57,6 +57,15 @@ const footerGroups = groups.filter(group => !group.collapsed).map(group => {
   return `<div class="footer-group"><h3>${escape(group.short)}</h3><ul>${entries.map(project => `<li><a href="${escape(project.links[0].url)}">${escape(project.name)}<span aria-hidden="true">↗</span></a></li>`).join('')}</ul></div>`;
 }).join('');
 
+await access(path.join(site, intro.portrait));
+const introCard = `<section class="intro-card" aria-labelledby="intro-title"><img src="${escape(intro.portrait)}" alt="Portrait of ${escape(intro.name)}" width="400" height="400"><div class="intro-copy"><p class="intro-eyebrow">The person behind the projects</p><h1 id="intro-title">${escape(intro.name)}</h1><p class="intro-headline">${escape(intro.headline)}</p></div><a href="${escape(intro.url)}" class="intro-link">LinkedIn <span aria-hidden="true">↗</span></a></section>`;
+const featured = projects.find(project => project.id === featuredProject);
+if (!featured?.images.length || !featured.links.length) throw new Error('Featured project needs a cover and a public link.');
+const featuredHero = `<section class="featured-hero" aria-labelledby="featured-title">
+  <div class="featured-copy"><p class="featured-eyebrow"><span aria-hidden="true"></span> Featured · Latest project</p><h2 id="featured-title" class="featured-title">${escape(featured.name.split(' ')[0])} <span>${escape(featured.name.split(' ').slice(1).join(' '))}<span class="featured-period">.</span></span></h2><p class="featured-description">${escape(featured.featuredSummary || featured.description)}</p><p class="featured-meta">${escape(featured.role)} <span aria-hidden="true">·</span> ${escape(featured.kind)}</p><div class="featured-actions"><a class="featured-primary" href="${escape(featured.links[0].url)}">${escape(featured.links[0].label)} <span aria-hidden="true">↗</span></a><a class="featured-secondary" href="${escape(featured.images[0].src)}" data-gallery="${featured.id}" data-gallery-index="0" aria-label="View featured gallery: ${escape(featured.name)}">View gallery <span aria-hidden="true">↗</span></a></div><a class="featured-browse" href="#all-projects">Browse all projects <span aria-hidden="true">↓</span></a></div>
+  <figure class="featured-preview"><div class="featured-window"><div class="featured-window-bar"><span class="window-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>${escape(new URL(featured.links[0].url).host)}</span><span class="featured-preview-label">Map preview</span></div><a href="${escape(featured.images[0].src)}" data-gallery="${featured.id}" data-gallery-index="0" aria-label="Open featured screenshot: ${escape(featured.name)}"><img src="${escape(featured.images[0].src)}" alt="${escape(featured.images[0].caption)}" width="1280" height="800" fetchpriority="high"></a></div><figcaption>Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://openmaptiles.org/">OpenMapTiles</a></figcaption></figure>
+</section>`;
+
 const galleryData = Object.fromEntries(projects.filter(project => project.images.length).map(project => [project.id, { name: project.name, images: project.images }]));
 const html = `<!doctype html>
 <!-- Generated from site/projects.json by scripts/build.mjs. -->
@@ -66,18 +75,21 @@ const html = `<!doctype html>
 <meta name="description" content="Companies I co-founded, products I built, and work I contributed to. Explore marketplaces, AI products, maps, open source, and experiments.">
 <link rel="canonical" href="https://projects.xavierloo.com/">
 <meta property="og:type" content="website"><meta property="og:title" content="Projects by Xavier Loo"><meta property="og:description" content="Products, contributions, and experiments by Xavier Loo."><meta property="og:url" content="https://projects.xavierloo.com/">
+<meta property="og:image" content="https://projects.xavierloo.com${escape(featured.images[0].src)}"><meta property="og:image:alt" content="${escape(featured.name)} map preview"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f8f9fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#060610" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <script>try { const t = localStorage.getItem('projects.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
 <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}"><script src="/directory.js?v=${scriptRevision}" defer></script>
 </head><body>
-<a class="skip-link" href="#directory">Skip to projects</a>
+<a class="skip-link" href="#all-projects">Skip to projects</a>
 <header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="/">// projects</a><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
 <main class="wrap" id="directory">
-  <div class="page-head"><p class="label">// a work in progress, always</p><h1 class="page-title">Things I've built<span class="accent">.</span></h1><p class="lede">Companies I co-founded, products I built, and work I contributed to.</p><p class="directory-note">From marketplaces and AI products to small tools made out of curiosity.</p></div>
+  ${introCard}
+  ${featuredHero}
+  <div class="page-head" id="all-projects" tabindex="-1"><p class="label">// the directory</p><h2 class="page-title">Things I've built<span class="accent">.</span></h2><p class="lede">Companies I co-founded, products I built, and work I contributed to.</p></div>
   <div class="browse-tools" data-enhanced hidden>
-    <div class="search-row"><label class="search-box"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search projects</span><input id="project-search" type="search" placeholder="Search projects, topics, or technologies…" autocomplete="off" aria-describedby="result-count"><kbd aria-hidden="true">/</kbd></label><p id="result-count" role="status">${projects.length} projects</p></div>
+    <div class="search-row"><label class="search-box"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search projects</span><input id="project-search" type="search" placeholder="Search projects, topics, or technologies…" autocomplete="off" aria-describedby="result-count"><kbd aria-hidden="true">/</kbd></label><div class="result-summary"><p id="result-count" role="status">${projects.length} projects</p><button type="button" id="clear-filters" hidden>Reset filters</button></div></div>
     <nav class="category-nav" aria-label="Filter projects by category"><button type="button" data-filter="all" aria-pressed="true">All <span>${projects.length}</span></button>${groups.map(group => `<button type="button" data-filter="${group.id}" aria-pressed="false">${escape(group.short)} <span>${projects.filter(project => project.group === group.id).length}</span></button>`).join('')}</nav>
   </div>
   <div id="no-results" class="no-results" hidden><h2>No projects found.</h2><p>Try another name, topic, or technology.</p><button type="button" id="reset-search">Clear search and filters</button></div>

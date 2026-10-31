@@ -4,6 +4,7 @@ const sections = [...document.querySelectorAll('[data-section]')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const result = document.querySelector('#result-count');
 const earlier = document.querySelector('.earlier-details');
+const clearFilters = document.querySelector('#clear-filters');
 let category = 'all';
 let priorEarlierState = earlier.open;
 let forcedEarlier = false;
@@ -29,12 +30,17 @@ function updateDirectory() {
   else if (forcedEarlier) earlier.open = priorEarlierState;
   forcedEarlier = forceOpen;
   document.querySelector('#no-results').hidden = visible !== 0;
+  clearFilters.hidden = words.length === 0 && category === 'all';
   result.textContent = words.length || category !== 'all' ? `${visible} of ${cards.length} projects` : `${cards.length} projects`;
   filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+  filters.find(button => button.dataset.filter === category)?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 }
 search.addEventListener('input', updateDirectory);
 filters.forEach(button => button.addEventListener('click', () => { category = button.dataset.filter; updateDirectory(); }));
-document.querySelector('#reset-search').addEventListener('click', () => { search.value = ''; category = 'all'; updateDirectory(); search.focus(); });
+function resetDirectory() { search.value = ''; category = 'all'; updateDirectory(); search.focus(); }
+document.querySelector('#reset-search').addEventListener('click', resetDirectory);
+clearFilters.addEventListener('click', resetDirectory);
+search.addEventListener('keydown', event => { if (event.key === 'Escape') { search.value = ''; updateDirectory(); } });
 
 const dialog = document.querySelector('#gallery');
 const galleries = JSON.parse(document.querySelector('#gallery-data').textContent);
@@ -124,7 +130,7 @@ document.querySelectorAll('[data-gallery]').forEach(link => link.addEventListene
     button.addEventListener('click', () => showImage(i));
     thumbs.append(button);
   });
-  showImage(coverPositions.get(link.dataset.gallery) || 0);
+  showImage(link.dataset.galleryIndex !== undefined ? Number(link.dataset.galleryIndex) : (coverPositions.get(link.dataset.gallery) || 0));
   dialog.showModal();
   document.querySelector('#gallery-close').focus();
 }));

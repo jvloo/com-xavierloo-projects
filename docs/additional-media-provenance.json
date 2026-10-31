@@ -174,5 +174,13 @@
     "reviewed_on": "2026-10-31",
     "sha256": "846b0e9796f140cfc5a988f31753f81797f02d3487452010c322c9e2a1f8b1df",
     "source_tree_sha": "99f3ed3288ad96b59e3387a6bd29dbfe9641c506"
+  },
+  {
+    "file": "xavier-loo.jpg",
+    "origin": "https://www.linkedin.com/in/xavier-loo/",
+    "type": "original-profile-photo",
+    "reviewed_on": "2026-10-31",
+    "sha256": "2e171fa59c6caee036fb4714e7fa439e91fd1f63e8a0b1aac9de1745a688061a",
+    "note": "Requested by Xavier for his public introduction. Downloaded from the portrait displayed on his own profile; original 400x400 JPEG, unchanged. No expiring CDN URL is embedded in the site."
   }
 ]

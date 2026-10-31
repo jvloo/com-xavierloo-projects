@@ -78,3 +78,14 @@ Artmeet's confirmed cover remains the Malaysia job-listing capture. All screensh
 Portrait app covers retain their original proportions. Very long gallery images (height greater than three times width) are displayed at readable width in a keyboard-focusable scroll region, with a scroll hint, rather than being compressed to the gallery's height. Other gallery images still fit the available screen. Thumbnail images also preserve the complete source frame.
 
 The source screenshots, cover choices, ordering, provenance, private-portal address handling, and manual-only carousel behavior are unchanged. Browser review covers desktop and mobile framing, complete-image fitting, controls outside image bounds, restored map attribution, and the long UniLah design's scrollable gallery. No original media files were edited.
+
+
+## Featured project, personal introduction and browsing polish
+
+LOKA Maps is the featured/latest project at Xavier's request. Its hero uses the existing unchanged map screenshot, a direct link to the public app, a link to its manual gallery, and visible OpenStreetMap/OpenMapTiles attribution. The featured gallery explicitly starts at the hero's shown image even if the directory's LOKA carousel has been moved to another image. LOKA remains in the directory; the total remains 22 projects.
+
+A short introduction precedes the hero. The displayed LinkedIn profile was reviewed again on 31 October 2026. Its headline identifies Xavier as a senior software engineer, AI/ML engineer and former startup founder; the introduction condenses those roles, without repeating its adoption-count claim or employment details. Xavier explicitly requested his profile photograph. The displayed original 400x400 JPEG was downloaded unchanged and is hosted locally so the site does not depend on an expiring LinkedIn CDN URL. Its hash and public profile origin are in the media provenance manifest.
+
+The page now has one H1 (Xavier's introduction), a featured-project H2, and a smaller directory heading. The skip link jumps directly to the directory. Search and category filters remain visible while browsing, with an explicit reset control, an empty-results recovery action, Escape to clear the search, and the existing slash shortcut. Resetting category filters also brings the selected category into view on narrow screens. No autoplay was reintroduced.
+
+Desktop, tablet and mobile layouts were reviewed at 320, 390, 768 and 1440 CSS pixels, with no horizontal overflow or heading clipping. Light and dark appearances, the original portrait, gallery opening, map credits, category counts, earlier-work expansion, empty search results, reset behavior and search clearing were checked. Main text and action colors pass a 4.5:1 contrast check. Cover choices, private portal handling and existing full-image framing remain unchanged.
