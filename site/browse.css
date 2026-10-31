@@ -1,0 +1,99 @@
+/* Compact browsing and search palette. Loaded after directory.css and rpg.css; #directory / #search-dialog scoping wins over skin rules. */
+
+/* Toolbar: one sticky row. Wrapper height is constant so condensing never shifts content. */
+html { scroll-padding-top: 0; }
+#directory .browse-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
+#directory .browse-tools { position: sticky; top: 0; z-index: 15; display: block; height: 60px; margin: 0 0 16px; padding: 0; border: 0; background: none; backdrop-filter: none; }
+#directory .browse-tools[hidden] { display: none; }
+#directory .browse-bar { display: flex; align-items: center; gap: 8px; height: 60px; padding: 0 8px 0 10px; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); transition: height .16s ease, box-shadow .16s ease; }
+#directory .browse-tools.is-condensed .browse-bar { height: 48px; box-shadow: 0 8px 24px #0005; }
+#directory .browse-bar > [data-companion-mini] { flex: 0 0 auto; min-width: 0; }
+#directory .category-nav { position: relative; display: flex; flex: 1 1 auto; flex-wrap: nowrap; align-items: center; gap: 2px; min-width: 0; padding: 0; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+#directory .category-nav::-webkit-scrollbar { display: none; }
+#directory .category-nav button { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); font-size: 14px; font-weight: 500; line-height: 1; white-space: nowrap; }
+#directory .browse-tools.is-condensed .category-nav button { min-height: 40px; }
+#directory .category-nav button:hover { background: var(--sunken); color: var(--ink); }
+#directory .category-nav button[aria-pressed="true"] { background: var(--glow); color: var(--accent); }
+#directory .category-nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; box-shadow: none; }
+#directory .search-trigger { flex: 0 0 auto; display: grid; place-items: center; width: 44px; height: 44px; margin-left: auto; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); }
+#directory .search-trigger:hover { border-color: var(--accent); color: var(--accent); }
+#directory .search-trigger svg, #search-dialog svg { fill: none; stroke: currentColor; stroke-width: 1.7; }
+#directory .no-results { padding: 32px 20px; margin-bottom: 40px; }
+#directory .no-results button { min-height: 44px; font-size: 14px; }
+
+/* Counts stay in the DOM for scripts and assistive tech only. */
+#directory .section-head .section-count { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Sections and headings stay clear of the sticky bar when anchored or scrolled to. */
+#directory .project-section { margin-bottom: 40px; scroll-margin-top: 76px; }
+#directory .section-head { margin-bottom: 14px; align-items: flex-end; }
+#directory .section-head p:not(.eyebrow) { margin-top: 4px; }
+#directory .eyebrow { margin-bottom: 4px; }
+#all-projects { scroll-margin-top: 16px; }
+
+/* Grids: two readable columns everywhere, one on mobile. No stretched third-card rules. */
+#directory .project-grid, #directory .project-grid.featured, #directory .project-grid.wide, #directory .project-grid.compact, #directory .project-grid.standard { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+#directory .project-grid .project-card, #directory .project-grid .project-card:last-child { grid-column: auto; flex-direction: column; scroll-margin-top: 76px; }
+#directory .project-grid .project-card .project-visual, #directory .project-grid .project-card:last-child .project-visual { width: 100%; border-right: 0; border-bottom: 0; }
+#directory .project-grid .project-card > .project-cover { width: 100%; border-right: 0; }
+#directory .project-grid.wide { grid-template-columns: 1fr; }
+#directory .project-grid.wide .project-card { flex-direction: row; }
+#directory .project-grid.wide .project-card .project-visual { width: 52%; flex-shrink: 0; }
+#directory .project-grid.wide .project-content { justify-content: center; }
+
+/* Covers: full uncropped screenshots, 200-240px max scaled to viewport height. */
+#directory .project-cover { aspect-ratio: auto; height: clamp(150px, 29vh, 240px); }
+#directory .project-cover img { width: 100%; height: 100%; padding: 6px; object-fit: contain; object-position: center; }
+#directory .project-visual.portrait img { padding: 6px; object-fit: contain; }
+#directory .project-cover.placeholder { padding: 14px; height: clamp(120px, 22vh, 170px); }
+#directory .monogram { font-size: 2.2rem; }
+#directory .cover-action { display: flex; align-items: center; justify-content: flex-start; gap: 6px; min-height: 36px; margin: 0; padding: 0 16px; border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 500 12px/1.4 var(--font-mono); text-decoration: none; }
+#directory .cover-action:hover { color: var(--accent); }
+
+/* Card content: Inter 16/1.55 body, 20px titles, compact meta. */
+#directory .project-content, #directory .compact .project-content, #directory .wide .project-content { gap: 8px; padding: 14px 16px 16px; justify-content: flex-start; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+#directory .project-role { font: 500 12px/1.4 var(--font-mono); }
+#directory .project-card h3, #directory .compact .project-card h3, #directory .wide .project-card h3 { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 20px; line-height: 1.25; }
+#directory .project-card h3:focus { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+#directory .project-description { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.55; }
+#directory .tags { gap: 5px; margin: 0; }
+#directory .tags li { padding: 2px 7px; font-size: 12px; line-height: 1.4; }
+#directory .project-links { gap: 4px 16px; margin-top: auto; padding-top: 2px; font-size: 14px; }
+#directory .project-links a { padding-block: 6px; }
+#directory .wide .project-links { margin-top: auto; }
+#directory .press { gap: 4px 12px; padding-top: 8px; font-size: 12px; }
+#directory .project-note, #directory .unpublished { font-size: 12px; line-height: 1.5; }
+
+/* Search palette */
+#search-dialog { width: min(640px, calc(100vw - 24px)); max-width: none; max-height: min(560px, calc(100dvh - 24px)); margin: 12vh auto auto; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 60px #000a; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+#search-dialog:not([open]) { display: none; }
+#search-dialog::backdrop { background: #02040acc; }
+#search-dialog .search-panel { display: flex; flex-direction: column; max-height: inherit; }
+#search-dialog .search-field { display: flex; align-items: center; gap: 10px; padding: 8px 10px 8px 16px; border-bottom: 1px solid var(--line); color: var(--muted); }
+#search-dialog .search-field svg { flex: 0 0 auto; }
+#search-dialog input { flex: 1; min-width: 0; min-height: 44px; border: 0; background: transparent; color: var(--ink); font: 16px/1.4 "Inter", system-ui, sans-serif; outline: none; }
+#search-dialog input::placeholder { color: var(--muted); opacity: 1; }
+#search-dialog .search-field:focus-within { box-shadow: inset 0 -2px 0 var(--accent); }
+#search-dialog .search-close { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--sunken); color: var(--ink); font-size: 14px; }
+#search-dialog kbd { padding: 1px 6px; border: 1px solid var(--line); border-radius: 4px; font: 12px var(--font-mono); color: var(--muted); }
+#search-dialog .search-results { margin: 0; padding: 6px; overflow-y: auto; list-style: none; position: relative; }
+#search-dialog .search-results [role="option"] { display: flex; flex-direction: column; gap: 2px; padding: 9px 12px; border-radius: 8px; cursor: pointer; }
+#search-dialog .search-results [role="option"][aria-selected="true"] { background: var(--glow); box-shadow: inset 3px 0 0 var(--accent); }
+#search-dialog .search-result-name { color: var(--strong); font-size: 16px; font-weight: 600; line-height: 1.3; }
+#search-dialog .search-result-meta { color: var(--muted); font-size: 13px; line-height: 1.4; }
+#search-dialog .search-empty { margin: 0; padding: 28px 16px; color: var(--muted); text-align: center; font-size: 16px; }
+#search-dialog .search-hint { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 8px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+#search-dialog .search-hint kbd { margin-right: 3px; }
+#search-dialog .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+@media (max-width: 760px) {
+  #directory .project-grid, #directory .project-grid.featured, #directory .project-grid.wide, #directory .project-grid.compact, #directory .project-grid.standard { grid-template-columns: 1fr; }
+  #directory .project-grid.wide .project-card { flex-direction: column; }
+  #directory .project-grid.wide .project-card .project-visual { width: 100%; }
+  #directory .browse-bar { gap: 4px; padding-left: 6px; }
+  #directory .category-nav button { padding: 0 11px; }
+  #directory .project-cover { height: clamp(150px, 30vh, 220px); }
+  #search-dialog { margin-top: 8vh; }
+  #search-dialog .search-hint, #search-dialog .search-close kbd { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } #directory .browse-bar { transition: none; } }

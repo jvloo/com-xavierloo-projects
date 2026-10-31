@@ -3,15 +3,19 @@ const cards = [...document.querySelectorAll('[data-project]')];
 const sections = [...document.querySelectorAll('[data-section]')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const result = document.querySelector('#result-count');
-const clearFilters = document.querySelector('#clear-filters');
+const categoryNav = document.querySelector('.category-nav');
+const toolbar = document.querySelector('.browse-tools');
+const sentinel = document.querySelector('#browse-sentinel');
 let category = 'all';
-const searchable = new Map(cards.map(card => [card, card.textContent.toLocaleLowerCase()]));
+
+// Each tab maps to a set of content groups (data-groups); "all" has none and shows everything.
+const categoryGroups = new Map(filters.map(button => [button.dataset.filter, button.dataset.groups ? new Set(button.dataset.groups.split(' ')) : null]));
 
 function updateDirectory() {
-  const words = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const groups = categoryGroups.get(category) || null;
   let visible = 0;
   for (const card of cards) {
-    const matches = (category === 'all' || card.dataset.group === category) && words.every(word => searchable.get(card).includes(word));
+    const matches = !groups || groups.has(card.dataset.group);
     card.hidden = !matches;
     visible += Number(matches);
   }
@@ -22,17 +26,149 @@ function updateDirectory() {
     section.querySelector('.section-count').setAttribute('aria-label', `${matches} projects`);
   }
   document.querySelector('#no-results').hidden = visible !== 0;
-  clearFilters.hidden = words.length === 0 && category === 'all';
-  result.textContent = words.length || category !== 'all' ? `${visible} of ${cards.length} projects` : `${cards.length} projects`;
+  result.textContent = category !== 'all' ? `${visible} of ${cards.length} projects` : `${cards.length} projects`;
   filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
-  filters.find(button => button.dataset.filter === category)?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  // Integration contract: fired after section hidden states are final.
+  document.dispatchEvent(new CustomEvent('directory:updated', { detail: { category, visible, total: cards.length } }));
 }
-search.addEventListener('input', updateDirectory);
-filters.forEach(button => button.addEventListener('click', () => { category = button.dataset.filter; updateDirectory(); }));
-function resetDirectory() { search.value = ''; category = 'all'; updateDirectory(); search.focus(); }
+
+// Keep the active tab in view by scrolling the nav itself, never the page.
+function revealFilter(button) {
+  if (!button || categoryNav.scrollWidth <= categoryNav.clientWidth) return;
+  const left = button.offsetLeft - categoryNav.offsetLeft;
+  categoryNav.scrollLeft = Math.max(0, left - (categoryNav.clientWidth - button.offsetWidth) / 2);
+}
+
+// If the condensed toolbar is stuck, return to the top of the directory so a shorter list never strands the reader.
+function keepDirectoryInView() {
+  const top = sentinel.getBoundingClientRect().top + window.scrollY;
+  if (window.scrollY > top) window.scrollTo(0, top);
+}
+
+filters.forEach(button => button.addEventListener('click', () => {
+  category = button.dataset.filter;
+  updateDirectory();
+  revealFilter(button);
+  keepDirectoryInView();
+}));
+function resetDirectory() { category = 'all'; updateDirectory(); revealFilter(filters[0]); keepDirectoryInView(); filters[0]?.focus({ preventScroll: true }); }
 document.querySelector('#reset-search').addEventListener('click', resetDirectory);
-clearFilters.addEventListener('click', resetDirectory);
-search.addEventListener('keydown', event => { if (event.key === 'Escape') { search.value = ''; updateDirectory(); } });
+
+// Sticky toolbar condenses once the sentinel above it has scrolled out of view.
+if (sentinel && toolbar && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => toolbar.classList.toggle('is-condensed', !entry.isIntersecting && entry.boundingClientRect.top < 0)).observe(sentinel);
+}
+
+// Command palette: searches every card's full original text (card.dataset.search), independent of the directory filter.
+const searchDialog = document.querySelector('#search-dialog');
+const searchOpen = document.querySelector('#search-open');
+const searchResults = document.querySelector('#search-results');
+const searchEmpty = document.querySelector('#search-empty');
+const searchStatus = document.querySelector('#search-status');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const entries = cards.map(card => ({
+  card,
+  text: (card.dataset.search || card.textContent).toLocaleLowerCase(),
+  name: card.querySelector('h3').textContent,
+  role: card.querySelector('.project-role')?.textContent || '',
+  section: card.closest('[data-section]')?.querySelector('h2')?.textContent || ''
+}));
+let matches = [];
+let activeIndex = 0;
+let searchReturn;
+let skipRestore = false;
+
+function setActive(index, scroll = true) {
+  if (!matches.length) return;
+  activeIndex = (index + matches.length) % matches.length;
+  [...searchResults.children].forEach((item, i) => {
+    item.setAttribute('aria-selected', String(i === activeIndex));
+    if (i === activeIndex) {
+      search.setAttribute('aria-activedescendant', item.id);
+      if (scroll) {
+        if (item.offsetTop < searchResults.scrollTop) searchResults.scrollTop = item.offsetTop;
+        else if (item.offsetTop + item.offsetHeight > searchResults.scrollTop + searchResults.clientHeight) searchResults.scrollTop = item.offsetTop + item.offsetHeight - searchResults.clientHeight;
+      }
+    }
+  });
+}
+
+function renderResults() {
+  const words = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const short = words.join('').length < 2;
+  const query = words.join(' ');
+  matches = entries.filter(entry => short || words.every(word => entry.text.includes(word)));
+  if (!short) matches = matches.map((entry, i) => ({ entry, i, rank: entry.name.toLocaleLowerCase().includes(query) ? 0 : 1 })).sort((a, b) => a.rank - b.rank || a.i - b.i).map(item => item.entry);
+  searchResults.replaceChildren(...matches.map((entry, i) => {
+    const item = document.createElement('li');
+    item.id = `search-option-${entry.card.id}`;
+    item.setAttribute('role', 'option');
+    item.setAttribute('aria-selected', 'false');
+    item.dataset.index = String(i);
+    const name = document.createElement('span');
+    name.className = 'search-result-name';
+    name.textContent = entry.name;
+    const meta = document.createElement('span');
+    meta.className = 'search-result-meta';
+    meta.textContent = [entry.role, entry.section].filter(Boolean).join(' · ');
+    item.append(name, meta);
+    return item;
+  }));
+  searchEmpty.hidden = matches.length !== 0;
+  searchStatus.textContent = matches.length ? 'Results available. Use arrow keys to choose.' : 'No matching projects.';
+  search.removeAttribute('aria-activedescendant');
+  searchResults.scrollTop = 0;
+  setActive(0, false);
+}
+
+function openSearch(trigger) {
+  if (searchDialog.open || dialog.open) return;
+  const active = document.activeElement;
+  searchReturn = trigger || (active && active !== document.body && active.isConnected ? active : searchOpen);
+  skipRestore = false;
+  search.value = '';
+  renderResults();
+  searchDialog.showModal();
+  search.focus();
+}
+
+function goToProject(card) {
+  skipRestore = true;
+  searchDialog.close();
+  if (card.hidden) { category = 'all'; updateDirectory(); revealFilter(filters[0]); }
+  const heading = card.querySelector('h3');
+  heading.tabIndex = -1;
+  // scroll-margin-top on the card (browse.css) keeps the heading clear of the sticky toolbar.
+  card.scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+  heading.focus({ preventScroll: true });
+}
+
+function chooseActive() { if (matches[activeIndex]) goToProject(matches[activeIndex].card); }
+
+searchOpen.addEventListener('click', () => openSearch(searchOpen));
+search.addEventListener('input', renderResults);
+search.addEventListener('keydown', event => {
+  if (event.isComposing) return;
+  if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); setActive(activeIndex + (event.key === 'ArrowDown' ? 1 : -1)); }
+  else if (event.key === 'Enter') { event.preventDefault(); chooseActive(); }
+  else if (event.key === 'Escape') { event.preventDefault(); searchDialog.close(); }
+});
+searchResults.addEventListener('mousedown', event => event.preventDefault());
+searchResults.addEventListener('click', event => {
+  const item = event.target.closest('[role="option"]');
+  if (!item) return;
+  setActive(Number(item.dataset.index), false);
+  chooseActive();
+});
+document.querySelector('#search-close').addEventListener('click', () => searchDialog.close());
+searchDialog.addEventListener('click', event => {
+  if (event.target === searchDialog) searchDialog.close();
+});
+searchDialog.addEventListener('close', () => {
+  search.value = '';
+  if (!skipRestore) (searchReturn?.isConnected ? searchReturn : searchOpen).focus();
+  skipRestore = false;
+});
 
 const dialog = document.querySelector('#gallery');
 const galleries = JSON.parse(document.querySelector('#gallery-data').textContent);
@@ -229,22 +365,42 @@ dialog.addEventListener('click', event => {
 previous.addEventListener('click', () => { if (position > 0) showImage(position - 1); });
 next.addEventListener('click', () => { if (position < galleryPages.length - 1) showImage(position + 1); });
 document.addEventListener('keydown', event => {
+  const commandSearch = (event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'k';
   if (dialog.open) {
+    if (commandSearch) event.preventDefault();
     if (event.key === 'ArrowLeft' && position > 0) { event.preventDefault(); showImage(position - 1); }
     if (event.key === 'ArrowRight' && position < galleryPages.length - 1) { event.preventDefault(); showImage(position + 1); }
     return;
   }
-  if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.target.closest('input,textarea,select,[contenteditable]')) {
-    event.preventDefault(); search.focus();
+  if (searchDialog.open) {
+    if (commandSearch) { event.preventDefault(); searchDialog.close(); }
+    return;
+  }
+  if (event.defaultPrevented) return;
+  if (commandSearch) {
+    event.preventDefault(); openSearch(); return;
+  }
+  if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.isComposing && !event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])')) {
+    event.preventDefault(); openSearch();
   }
 });
 
 const themeControl = document.querySelector('#theme-control');
 themeControl.value = document.documentElement.dataset.theme || 'system';
+const themePreference = window.matchMedia('(prefers-color-scheme: dark)');
+function syncThemeColor() {
+  const meta = document.querySelector('#theme-color');
+  if (!meta) return;
+  const theme = document.documentElement.dataset.theme;
+  const dark = theme === 'dark' || (!theme && themePreference.matches);
+  meta.content = meta.dataset[dark ? 'dark' : 'light'];
+}
+themePreference.addEventListener('change', syncThemeColor);
 themeControl.addEventListener('change', () => {
   const theme = themeControl.value;
   if (theme === 'system') delete document.documentElement.dataset.theme;
   else document.documentElement.dataset.theme = theme;
   try { localStorage.setItem('projects.theme', theme); } catch {}
+  syncThemeColor();
 });
 document.querySelectorAll('[data-enhanced]').forEach(element => { element.hidden = false; });

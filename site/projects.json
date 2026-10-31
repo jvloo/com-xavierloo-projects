@@ -104,7 +104,8 @@
           "caption": "The Artmeet platform introduction",
           "source": "https://www.artmeet.com/"
         }
-      ]
+      ],
+      "summary": "A hiring and freelance marketplace connecting creative designers with recruiters."
     },
     {
       "id": "senangprint",
@@ -150,7 +151,8 @@
           "caption": "Archived SenangPrint storefront, preserved in its published blog assets",
           "source": "https://www.senangprint.com/blog/wp-content/uploads/2024/12/Screenshot-2024-12-28-064620.png"
         }
-      ]
+      ],
+      "summary": "B2B printing, dynamic pricing and production workflows in one platform."
     },
     {
       "id": "theralink",
@@ -185,7 +187,8 @@
           "caption": "TheraLink's public homepage",
           "source": "https://www.theralink.my/"
         }
-      ]
+      ],
+      "summary": "Find speech therapists and book virtual, clinic or home appointments in Malaysia."
     },
     {
       "id": "wiseway",
@@ -226,7 +229,8 @@
           "caption": "Core platform: sensitivity analysis. QA example data, captured 27 Oct 2026.",
           "source": "https://www.wiseway.ai/"
         }
-      ]
+      ],
+      "summary": "AI tools for property feasibility and home solar advice in Australia."
     },
     {
       "id": "segi",
@@ -247,7 +251,8 @@
           "caption": "Recorded shelf view with region overlays and evidence-review status. Historical interface example, not live store conditions or verified freshness results."
         }
       ],
-      "note": "User-selected screenshot of the recorded review interface. The operational portal is private."
+      "note": "User-selected screenshot of the recorded review interface. The operational portal is private.",
+      "summary": "AI shelf monitoring for fresh-food retail, built from proof of concept to pilot."
     },
     {
       "id": "unilah",
@@ -287,7 +292,8 @@
           "title": "UniDeals"
         }
       ],
-      "galleryLayout": "mobile"
+      "galleryLayout": "mobile",
+      "summary": "A Malaysian student community app, now Honey Lemon by UniLah."
     },
     {
       "id": "codevio",
@@ -303,7 +309,8 @@
         "SQL Server"
       ],
       "links": [],
-      "images": []
+      "images": [],
+      "summary": "Client platforms spanning APIs, web apps, dashboards and device integrations."
     },
     {
       "id": "loka",
@@ -365,7 +372,8 @@
         "source": "https://lokamaps.app/",
         "attribution": true
       },
-      "galleryLayout": "paired"
+      "galleryLayout": "paired",
+      "summary": "Explore Malaysia with place search and directions for driving, riding and walking."
     },
     {
       "id": "agentisan",

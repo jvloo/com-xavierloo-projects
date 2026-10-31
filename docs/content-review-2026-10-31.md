@@ -121,4 +121,14 @@ The RPG opening places the introduction and featured LOKA spread inside an origi
 
 The city is generated illustration, not evidence of a project or a product screenshot. Its original bytes and generation prompt are recorded in [city art provenance](rpg-city-art-provenance.json). Product screenshots and the portrait remain unchanged and unfiltered. The unused forest concept was not included in this deployment.
 
+## Compact browsing and cyberpunk companions
+
+Visitors without an appearance preference now start in dark mode. Explicit Light, Dark and System choices are retained. The browser theme color follows the resolved appearance.
+
+The directory uses five filters: All, Built, Contributions, Independent and Earlier. Independent combines the three existing independent-work sections for filtering only; the six section labels, project membership and ordering are unchanged. Visible project totals and section-count badges are removed while live announcements remain available to assistive technology. The toolbar is one 60px row that reduces to 48px after scrolling past it, with an icon-only search trigger at the right. Search opens a native dialog using the trigger, Ctrl/Command-K or `/`, searches full original descriptions, supports arrow keys and Enter, and restores focus on dismissal. Selecting a project reveals its card even if the current category had hidden it.
+
+Cards use concise complete summaries, smaller spacing, 16px body copy, 20px readable titles and full uncropped screenshot previews. Original descriptions remain in the source data and search index. Cover carousels have been replaced by one View screens link; galleries retain manual previous/next navigation and synchronized device pairs. At 1280×720 the tallest card measured 497px; at 320px width the tallest measured 564px. Earlier-work entries remain directly visible when not explicitly filtered out.
+
+Original SVG pixel artwork adds a visor-wearing traveller, scout drone, toolkit, relay, holographic map, terminal, arcade cabinet and retro computer. On wide screens the traveller follows chapter progress in a separate left gutter and changes pose; below 1280px a smaller traveller stays in the compact toolbar. Each chapter has a relevant object. The global motion control and native reduced-motion preference pause decorative movement, and opening a gallery or search palette pauses the background. The SVG assets contain source geometry rather than retouched project screenshots.
+
 Browser checks cover the 320px and 768px layouts and the 1440px desktop composition, light and dark appearances, header style comparison, the synchronized Planner pair, four directly visible earlier-work entries, and reduced-motion behavior. Shared data checks confirm 22 projects, six categories, 17 galleries, and exactly one user-approved Segi image. The public page sources contain no operational portal URL.

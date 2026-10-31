@@ -28,6 +28,10 @@ python -m http.server 4174 --directory site
 
 Client-side JavaScript adds search, category filters, screenshot galleries and an appearance selector. Project content, outgoing links and all earlier-work cards remain available without it.
 
+New visitors start in dark mode; saved Light, Dark or System choices are respected. `site/browse.css` provides the compact sticky filter row, shorter uncropped project cards and the native search palette (search icon, Ctrl/Command-K or `/`). The five filters keep all six content sections: Independent covers Side projects, Open source, and Apps & hackathons. Project totals are announced to assistive technology without taking visible toolbar space.
+
+RPG mode also loads `site/rpg/companion.js`, `companion.css` and the original pixel SVG sprite sheet `companions.svg`. A traveller and drone accompany the desktop chapter rail; smaller screens use a toolbar traveller. Six chapter objects and poses follow the visible content. The motion control pauses the decorative world and characters, native reduced-motion preferences take precedence, and open dialogs pause the background. These assets are not loaded in Clean mode.
+
 ```sh
 cd worker
 npm ci
