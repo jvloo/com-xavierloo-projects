@@ -33,15 +33,12 @@ html { scroll-padding-top: 0; }
 #directory .eyebrow { margin-bottom: 4px; }
 #all-projects { scroll-margin-top: 16px; }
 
-/* Grids: two readable columns everywhere, one on mobile. No stretched third-card rules. */
-#directory .project-grid, #directory .project-grid.featured, #directory .project-grid.wide, #directory .project-grid.compact, #directory .project-grid.standard { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-#directory .project-grid .project-card, #directory .project-grid .project-card:last-child { grid-column: auto; flex-direction: column; scroll-margin-top: 76px; }
-#directory .project-grid .project-card .project-visual, #directory .project-grid .project-card:last-child .project-visual { width: 100%; border-right: 0; border-bottom: 0; }
-#directory .project-grid .project-card > .project-cover { width: 100%; border-right: 0; }
-#directory .project-grid.wide { grid-template-columns: 1fr; }
-#directory .project-grid.wide .project-card { flex-direction: row; }
-#directory .project-grid.wide .project-card .project-visual { width: 52%; flex-shrink: 0; }
-#directory .project-grid.wide .project-content { justify-content: center; }
+/* Grids: every card in every group is the same full-width row (preview 52% left, details right); stacks at <=760px. */
+#directory .project-grid, #directory .project-grid.featured, #directory .project-grid.wide, #directory .project-grid.compact, #directory .project-grid.standard { grid-template-columns: 1fr; gap: 16px; }
+#directory .project-grid .project-card, #directory .project-grid .project-card:last-child { grid-column: auto; flex-direction: row; scroll-margin-top: 76px; }
+#directory .project-grid .project-card .project-visual, #directory .project-grid .project-card:last-child .project-visual,
+#directory .project-grid .project-card > .project-cover { width: 52%; flex-shrink: 0; border-right: 1px solid var(--line); border-bottom: 0; }
+#directory .project-grid .project-card .project-content { flex: 1 1 0; min-width: 0; justify-content: center; }
 
 /* Covers: full uncropped screenshots, 200-240px max scaled to viewport height. */
 #directory .project-cover { aspect-ratio: auto; height: clamp(150px, 29vh, 240px); }
@@ -53,7 +50,7 @@ html { scroll-padding-top: 0; }
 #directory .cover-action:hover { color: var(--accent); }
 
 /* Card content: Inter 16/1.55 body, 20px titles, compact meta. */
-#directory .project-content, #directory .compact .project-content, #directory .wide .project-content { gap: 8px; padding: 14px 16px 16px; justify-content: flex-start; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+#directory .project-content, #directory .compact .project-content, #directory .wide .project-content { gap: 8px; padding: 14px 16px 16px; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
 #directory .project-role { font: 500 12px/1.4 var(--font-mono); }
 #directory .project-card h3, #directory .compact .project-card h3, #directory .wide .project-card h3 { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 20px; line-height: 1.25; }
 #directory .project-card h3:focus { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
@@ -62,7 +59,6 @@ html { scroll-padding-top: 0; }
 #directory .tags li { padding: 2px 7px; font-size: 12px; line-height: 1.4; }
 #directory .project-links { gap: 4px 16px; margin-top: auto; padding-top: 2px; font-size: 14px; }
 #directory .project-links a { padding-block: 6px; }
-#directory .wide .project-links { margin-top: auto; }
 #directory .press { gap: 4px 12px; padding-top: 8px; font-size: 12px; }
 #directory .project-note, #directory .unpublished { font-size: 12px; line-height: 1.5; }
 
@@ -91,8 +87,9 @@ html { scroll-padding-top: 0; }
 
 @media (max-width: 760px) {
   #directory .project-grid, #directory .project-grid.featured, #directory .project-grid.wide, #directory .project-grid.compact, #directory .project-grid.standard { grid-template-columns: 1fr; }
-  #directory .project-grid.wide .project-card { flex-direction: column; }
-  #directory .project-grid.wide .project-card .project-visual { width: 100%; }
+  #directory .project-grid .project-card, #directory .project-grid .project-card:last-child { flex-direction: column; }
+  #directory .project-grid .project-card .project-visual, #directory .project-grid .project-card:last-child .project-visual,
+  #directory .project-grid .project-card > .project-cover { width: 100%; border-right: 0; }
   #directory .browse-bar { gap: 4px; padding-left: 6px; }
   #directory .category-nav button { padding: 0 11px; }
   #directory .project-cover { height: clamp(150px, 30vh, 220px); }

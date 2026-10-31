@@ -145,3 +145,8 @@ The condensed toolbar masks its unused tail without a layout shift. The gallery 
 Primary reference research informed principles rather than reused assets: [Pixel Jeff's City Centre](https://pixeljeff1995.artstation.com/projects/kDe5kz) for layered architecture and grounded objects; [Bruno Simon](https://bruno-simon.com/) for a continuous world identity; [Brittany Chiang](https://brittanychiang.com/) for clear identity, roles and project scanning. No third-party reference artwork is published here.
 
 Host checks confirm the 22 project entries retain all names, roles, full descriptions, source links and gallery assets. At 1280×720 the tallest card is about 495px; 320px layouts have no horizontal overflow. Search/keyboard focus, synchronized Planner screenshots, theme switching, motion pause and Clean/RPG switching were exercised in the browser. The single approved Segi image and confidential-URL restriction remain intact.
+
+
+## Uniform Side projects card layout
+
+All 22 cards now share the Side projects layout: one full-width row per project above 760px, with a 52% preview pane on the left and details on the right. Direct placeholders use the same split. All cards stack vertically at 760px or narrower. The change applies to RPG and Clean through shared browsing CSS, while covers, gallery controls, group membership and project content remain unchanged. At 1280×800 all cards are horizontal and the tallest measures about 270px; 320px and 390px checks show stacked cards without horizontal overflow.
