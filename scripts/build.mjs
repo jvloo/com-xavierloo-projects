@@ -37,12 +37,12 @@ const copy = {
     title: 'Projects by Xavier Loo',
     chapter: number => `Chapter ${String(number).padStart(2, '0')}`,
     directory: 'Project directory',
-    introEyebrow: 'From RPG Maker to real products',
+    introEyebrow: '',
     featuredEyebrow: 'Latest project',
     waypoints: true,
     elsewhere: 'Elsewhere',
     gallery: 'Project gallery',
-    origin: 'I started coding to build my own RPG. Today I build marketplaces, AI systems and independent tools.',
+    origin: '',
     linkInCopy: true
   }
 };
@@ -120,7 +120,7 @@ const footerGroups = groups.filter(group => projects.some(project => project.gro
 await access(path.join(site, intro.portrait));
 const renderIntro = t => {
   const link = `<a href="${escape(intro.url)}" class="intro-link">LinkedIn <span aria-hidden="true">↗</span></a>`;
-  return `<section class="intro-card" aria-labelledby="intro-title"><img src="${escape(intro.portrait)}" alt="Portrait of ${escape(intro.name)}" width="400" height="400"><div class="intro-copy"><p class="intro-eyebrow">${t.introEyebrow}</p><h1 id="intro-title">${escape(intro.name)}</h1><p class="intro-headline">${escape(intro.headline)}</p>${t.origin ? `<p class="intro-origin">${escape(t.origin)}</p>` : ''}${t.linkInCopy ? link : ''}</div>${t.linkInCopy ? '' : link}</section>`;
+  return `<section class="intro-card" aria-labelledby="intro-title"><img src="${escape(intro.portrait)}" alt="Portrait of ${escape(intro.name)}" width="400" height="400"><div class="intro-copy">${t.introEyebrow ? `<p class="intro-eyebrow">${t.introEyebrow}</p>` : ''}<h1 id="intro-title">${escape(intro.name)}</h1><p class="intro-headline">${escape(intro.headline)}</p>${t.origin ? `<p class="intro-origin">${escape(t.origin)}</p>` : ''}${t.linkInCopy ? link : ''}</div>${t.linkInCopy ? '' : link}</section>`;
 };
 const featured = projects.find(project => project.id === featuredProject);
 if (!featured?.images.length || !featured.links.length) throw new Error('Featured project needs a cover and a public link.');
