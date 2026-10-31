@@ -244,15 +244,11 @@
       "links": [],
       "images": [
         {
-          "src": "/media/segi-overview.png",
-          "caption": "REMOS store overview in staging: recorded-evidence status and inspection queues. Interface capture, not live store conditions."
-        },
-        {
-          "src": "/media/segi-check-rules.png",
-          "caption": "REMOS staging interface: versioned store check rules for fullness, freshness and compliance"
+          "src": "/media/segi-shelf-review.png",
+          "caption": "Recorded shelf view with region overlays and evidence-review status. Historical interface example, not live store conditions or verified freshness results."
         }
       ],
-      "note": "Screenshots show the staging interface. The operational portal is private."
+      "note": "User-selected screenshot of the recorded review interface. The operational portal is private."
     },
     {
       "id": "unilah",

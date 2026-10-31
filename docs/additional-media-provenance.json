@@ -81,22 +81,6 @@
     "sha256": "9ed1ea5a53058b0af272772b6ab896e01b96b0802b0a829d21450bc93e244b98"
   },
   {
-    "file": "segi-overview.png",
-    "origin": "Private signed-in staging interface; address withheld",
-    "type": "browser-interface-capture",
-    "caption": "REMOS store overview in staging: recorded-evidence status and inspection queues. Interface capture, not live store conditions.",
-    "reviewed_on": "2026-10-31",
-    "sha256": "36a81ddef34a0e7270500493de9c56505d208dc7b781ae559ef6186a28fd9108"
-  },
-  {
-    "file": "segi-check-rules.png",
-    "origin": "Private signed-in staging interface; address withheld",
-    "type": "browser-interface-capture",
-    "caption": "REMOS staging interface: versioned store check rules for fullness, freshness and compliance",
-    "reviewed_on": "2026-10-31",
-    "sha256": "2457355cb557682e204e3d6b6ec270d16b08aec0fc42f3ad600bad1e404aeef0"
-  },
-  {
     "file": "unilah-app-home.png",
     "origin": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=1983-57028",
     "type": "original-figma-frame-export",
@@ -182,5 +166,13 @@
     "reviewed_on": "2026-10-31",
     "sha256": "2e171fa59c6caee036fb4714e7fa439e91fd1f63e8a0b1aac9de1745a688061a",
     "note": "Requested by Xavier for his public introduction. Downloaded from the portrait displayed on his own profile; original 400x400 JPEG, unchanged. No expiring CDN URL is embedded in the site."
+  },
+  {
+    "file": "segi-shelf-review.png",
+    "origin": "Screenshot supplied by Xavier in this chat; private portal address withheld",
+    "type": "user-selected-interface-capture",
+    "reviewed_on": "2026-10-31",
+    "sha256": "8cc90c9dc0c6f72a938367ed00594628f247d375c60866977e6778ee4a180105",
+    "note": "The sole Segi gallery image, copied unchanged from the user attachment. Replaces the earlier overview and configuration captures."
   }
 ]
