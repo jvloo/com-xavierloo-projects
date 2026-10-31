@@ -11,14 +11,14 @@
       "id": "built",
       "label": "Built end-to-end",
       "short": "Built",
-      "intro": "Products I built end-to-end, as a co-founder, solo builder or contract developer.",
+      "intro": "Products I co-founded, built solo or delivered on contract.",
       "layout": "standard"
     },
     {
       "id": "contributions",
       "label": "Contributions",
       "short": "Contributions",
-      "intro": "Products and teams I contributed to across engineering and delivery.",
+      "intro": "Engineering and delivery with product teams.",
       "layout": "featured"
     },
     {
@@ -32,14 +32,14 @@
       "id": "opensource",
       "label": "Open source",
       "short": "Open source",
-      "intro": "Libraries, developer tools, and small experiments. Source included.",
+      "intro": "Developer tools, libraries and experiments. Source included.",
       "layout": "compact"
     },
     {
       "id": "experiments",
       "label": "Apps & hackathons",
       "short": "Apps & hacks",
-      "intro": "Small useful tools, learning projects, and ideas built under a deadline.",
+      "intro": "Small useful tools, learning projects and hackathon builds.",
       "layout": "standard"
     },
     {
@@ -251,7 +251,7 @@
           "caption": "Recorded shelf view with region overlays and evidence-review status. Historical interface example, not live store conditions or verified freshness results."
         }
       ],
-      "note": "User-selected screenshot of the recorded review interface. The operational portal is private.",
+      "linkNote": "Private deployment",
       "summary": "AI shelf monitoring for fresh-food retail, built from proof of concept to pilot."
     },
     {

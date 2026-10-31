@@ -353,7 +353,8 @@ document.querySelectorAll('[data-gallery]').forEach(link => link.addEventListene
   document.querySelector('#gallery-title').textContent = currentGallery.name;
   prepareGallery(link.dataset.galleryIndex !== undefined ? Number(link.dataset.galleryIndex) : (coverPositions.get(link.dataset.gallery) || 0));
   dialog.showModal();
-  document.querySelector('#gallery-close').focus();
+  dialog.scrollTop = 0;
+  document.querySelector('#gallery-close').focus({ preventScroll: true });
 }));
 document.querySelector('#gallery-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('close', () => { renderVersion++; stage.removeAttribute('aria-busy'); image.removeAttribute('src'); pairedDesktop.removeAttribute('src'); pairedMobile.removeAttribute('src'); mobileGrid.replaceChildren(); opener?.focus(); });

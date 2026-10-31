@@ -12,7 +12,7 @@ const styleRevision = await revision('directory.css');
 // The RPG skin is a second output of the same data; fail loudly if its assets are missing.
 const rpgStylesheet = 'rpg/rpg.css';
 const rpgBanner = 'rpg/cyberpunk-city.png';
-for (const file of [rpgStylesheet, rpgBanner, 'rpg/companion.js', 'rpg/companion.css', 'rpg/companions.svg']) {
+for (const file of [rpgStylesheet, rpgBanner, 'rpg/city-block.svg', 'rpg/companion.js', 'rpg/companion.css', 'rpg/companions.svg']) {
   await access(path.join(site, file)).catch(() => { throw new Error(`Missing required RPG asset: site/${file}`); });
 }
 const rpgStyleRevision = await revision(rpgStylesheet);
@@ -36,13 +36,14 @@ const copy = {
   rpg: {
     title: 'Projects by Xavier Loo',
     chapter: number => `Chapter ${String(number).padStart(2, '0')}`,
-    directory: 'The compendium',
-    introEyebrow: "The adventurer's journal",
-    featuredEyebrow: '★ Current expedition · Latest project',
+    directory: 'Project directory',
+    introEyebrow: 'From RPG Maker to real products',
+    featuredEyebrow: 'Latest project',
     waypoints: true,
     elsewhere: 'Elsewhere',
     gallery: 'Project gallery',
-    origin: 'My programming journey began with RPG Maker and the idea of making my own RPG.'
+    origin: 'I started coding to build my own RPG. Today I build marketplaces, AI systems and independent tools.',
+    linkInCopy: true
   }
 };
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
@@ -96,7 +97,7 @@ const card = project => {
       <h3>${escape(project.name)}</h3>
       <p class="project-description">${escape(project.summary || firstSentence(project.description))}</p>
       <ul class="tags" aria-label="Project topics">${project.tags.map(tag => `<li>${escape(tag)}</li>`).join('')}</ul>
-      ${project.links.length ? `<div class="project-links">${project.links.map(link => external(link, project.name)).join('')}</div>` : '<p class="unpublished">No public project link yet</p>'}
+      ${project.links.length ? `<div class="project-links">${project.links.map(link => external(link, project.name)).join('')}</div>` : `<p class="unpublished">${escape(project.linkNote || 'No public project link yet')}</p>`}
       ${project.press?.length ? `<p class="press"><span>Press</span> ${project.press.map(link => external(link, project.name)).join('')}</p>` : ''}
       ${project.note ? `<p class="project-note">${escape(project.note)}</p>` : ''}
     </div>
@@ -117,7 +118,10 @@ const footerGroups = groups.filter(group => projects.some(project => project.gro
 }).join('');
 
 await access(path.join(site, intro.portrait));
-const renderIntro = t => `<section class="intro-card" aria-labelledby="intro-title"><img src="${escape(intro.portrait)}" alt="Portrait of ${escape(intro.name)}" width="400" height="400"><div class="intro-copy"><p class="intro-eyebrow">${t.introEyebrow}</p><h1 id="intro-title">${escape(intro.name)}</h1><p class="intro-headline">${escape(intro.headline)}</p>${t.origin ? `<p class="intro-origin">${escape(t.origin)}</p>` : ''}</div><a href="${escape(intro.url)}" class="intro-link">LinkedIn <span aria-hidden="true">↗</span></a></section>`;
+const renderIntro = t => {
+  const link = `<a href="${escape(intro.url)}" class="intro-link">LinkedIn <span aria-hidden="true">↗</span></a>`;
+  return `<section class="intro-card" aria-labelledby="intro-title"><img src="${escape(intro.portrait)}" alt="Portrait of ${escape(intro.name)}" width="400" height="400"><div class="intro-copy"><p class="intro-eyebrow">${t.introEyebrow}</p><h1 id="intro-title">${escape(intro.name)}</h1><p class="intro-headline">${escape(intro.headline)}</p>${t.origin ? `<p class="intro-origin">${escape(t.origin)}</p>` : ''}${t.linkInCopy ? link : ''}</div>${t.linkInCopy ? '' : link}</section>`;
+};
 const featured = projects.find(project => project.id === featuredProject);
 if (!featured?.images.length || !featured.links.length) throw new Error('Featured project needs a cover and a public link.');
 const featuredMobile = featured.images[0].mobile;
@@ -141,7 +145,7 @@ return `<!doctype html>
 <meta property="og:image" content="https://projects.xavierloo.com${escape(featured.images[0].src)}"><meta property="og:image:alt" content="${escape(featured.name)} map preview"><meta name="twitter:card" content="summary_large_image">
 <meta id="theme-color" name="theme-color" content="${rpg ? '#080c1c' : '#060610'}" data-light="${rpg ? '#eef5fb' : '#f8f9fb'}" data-dark="${rpg ? '#080c1c' : '#060610'}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">${rpg ? '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&display=swap">' : ''}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">${rpg ? '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap">' : ''}
 <script>try { const t = localStorage.getItem('projects.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; else if (t === 'system') delete document.documentElement.dataset.theme; } catch {} { const m = document.querySelector('#theme-color'); const t = document.documentElement.dataset.theme; m.content = m.dataset[t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light']; }</script>
 <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/rpg.css?v=${rpgStyleRevision}">` : ''}<link rel="stylesheet" href="/browse.css?v=${browseRevision}">${rpg ? `<link rel="stylesheet" href="/rpg/companion.css?v=${companionStyleRevision}">` : ''}<script src="/directory.js?v=${scriptRevision}" defer></script>${rpg ? `<script src="/rpg/companion.js?v=${companionScriptRevision}" data-sprite="/rpg/companions.svg?v=${companionSpriteRevision}" defer></script>` : ''}
 </head><body>
@@ -149,7 +153,6 @@ return `<!doctype html>
 <header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="${rpg ? '/' : '/clean/'}">// projects</a><div class="masthead-actions"><nav class="style-switch" aria-label="Page style"><a href="/"${rpg ? ' aria-current="page"' : ''}>RPG</a><a href="/clean/"${rpg ? '' : ' aria-current="page"'}>Clean</a></nav><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></div></header>
 <main class="wrap" id="directory">
   ${rpg ? `<div class="rpg-opening"><div class="rpg-world" aria-hidden="true"><span class="rpg-scenery"></span><span class="rpg-veil"></span><span class="rpg-stars"></span><span class="rpg-mote m1"></span><span class="rpg-mote m2"></span><span class="rpg-mote m3"></span><span class="rpg-mote m4"></span><span class="rpg-towers left"><i class="tower"></i><i class="tower"></i><i class="tower"></i></span><span class="rpg-towers right"><i class="tower"></i><i class="tower"></i><i class="tower"></i></span></div>
-  <div class="rpg-title"><p class="rpg-notes">Field notes · Code, craft &amp; new worlds</p><p class="rpg-display">Every build.<br>A new adventure.</p></div>
   ${renderIntro(t)}
   ${renderFeatured(t)}</div>` : `${renderIntro(t)}
   ${renderFeatured(t)}`}

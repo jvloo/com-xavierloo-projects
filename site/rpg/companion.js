@@ -9,9 +9,9 @@
   var KEY = 'projects.motion';
   var CHAPTERS = [
     ['intro', 'Start', '.intro-card', 'trav-idle'],
-    ['featured', 'Spotlight', '.featured-hero', 'trav-idle'],
+    ['featured', 'Featured', '.featured-hero', 'trav-idle'],
     ['built', 'Built', '[data-section="built"]', 'pose-built'],
-    ['contributions', 'Relay', '[data-section="contributions"]', 'pose-contrib'],
+    ['contributions', 'Contrib', '[data-section="contributions"]', 'pose-contrib'],
     ['side', 'Map', '[data-section="side"]', 'pose-side'],
     ['opensource', 'Open', '[data-section="opensource"]', 'pose-opensource'],
     ['experiments', 'Arcade', '[data-section="experiments"]', 'pose-experiments'],
@@ -22,7 +22,7 @@
   function ref(id) { return SPRITE + '#cp-' + id; }
   function art(id, w, h, cls) {
     return '<svg class="cp-svg ' + (cls || '') + '" width="' + w + '" height="' + h +
-      '" viewBox="0 0 ' + (w === h ? '24 24' : id.indexOf('drone') > -1 ? '16 12' : '40 56') +
+      '" viewBox="0 0 ' + (id.indexOf('prop-') === 0 ? '24 24' : id === 'drone' ? '12 9' : '24 33') +
       '" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><use href="' + ref(id) + '"></use></svg>';
   }
   function el(tag, cls, html) {
@@ -59,7 +59,7 @@
   var dock = el('div', 'cp-dock',
     '<div class="cp-rail"></div><div class="cp-nodes"></div>' +
     '<div class="cp-walker"><div class="cp-drone">' + art('drone', 24, 18) + '</div>' +
-    '<div class="cp-hero"><div class="cp-flip">' + art('trav-idle', 48, 67) + '</div></div>' +
+    '<div class="cp-hero"><div class="cp-flip">' + art('trav-idle', 48, 66) + '</div></div>' +
     '<div class="cp-label"></div></div>');
   dock.setAttribute('aria-hidden', 'true');
   document.body.appendChild(dock);
@@ -69,7 +69,7 @@
   var label = dock.querySelector('.cp-label');
   var dockUse = dock.querySelector('.cp-hero use');
 
-  var mini = el('span', 'cp-mini', art('trav-idle', 28, 39));
+  var mini = el('span', 'cp-mini', art('trav-idle', 24, 33));
   mini.setAttribute('aria-hidden', 'true');
   mini.setAttribute('data-companion-mini', '');
   var tools = document.querySelector('.browse-bar');
@@ -86,7 +86,7 @@
     if (e && propIds[c[0]]) {
       var head = e.querySelector('.section-head');
       if (head && !head.querySelector('.cp-prop')) {
-        var p = el('span', 'cp-prop', art('prop-' + propIds[c[0]], 24, 24));
+        var p = el('span', 'cp-prop', art('prop-' + propIds[c[0]], 48, 48));
         p.setAttribute('aria-hidden', 'true');
         head.appendChild(p);
       }

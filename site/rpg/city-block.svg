@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="128" viewBox="0 0 720 128" shape-rendering="crispEdges">
+<!-- Original code-drawn city block. Static decorative architecture, not project evidence. -->
+<!-- distant roofline -->
+<path fill="#101d2c" d="M0 128V84h18V72h30v12h18V58h26V42h4v16h18v70h20V70h32V44h38v84h20V62h12V32h4v30h32v66h18V48h12V24h28v24h22v80h24V72h38V54h26v74h18V40h16V20h4v20h26v88h26V60h22V44h20v84h22V80h30V68h20v60h20V36h14V12h4v24h26v92h20V58h24V40h22v88h30V64h24v64z"/>
+<path fill="#193040" d="M82 70h16v2H82zM170 56h26v2h-26zM246 72h20v2h-20zM306 38h16v2h-16zM414 64h20v2h-20zM478 52h16v2h-16zM586 48h18v2h-18zM656 52h18v2h-18z"/>
+<!-- foreground buildings, solid facades -->
+<path fill="#162b39" d="M184 128V88h12V74h42v14h14v40h18V60h46v68h18V94h18V82h50v46h18V54h10V38h34v16h10v74h24V78h46v50h18V96h58v32h18V56h44v72h16V84h46v44h16V74h30v54z"/>
+<!-- top-lit parapets and facade setbacks -->
+<path fill="#284353" d="M196 74h42v2h-42zM270 60h46v2h-46zM352 82h50v2h-50zM430 38h34v2h-34zM420 54h54v2h-54zM498 78h46v2h-46zM562 96h58v2h-58zM638 56h44v2h-44zM698 74h22v2h-22z"/>
+<path fill="#0c1927" d="M204 88h28v40h-28zM280 70h26v58h-26zM362 92h30v36h-30zM432 64h30v64h-30zM508 88h26v40h-26zM572 106h38v22h-38zM648 66h24v62h-24z"/>
+<!-- muted windows, selective lit cyan pixels -->
+<path fill="#2c4a58" d="M210 92h6v4h-6zM220 92h6v4h-6zM210 102h6v4h-6zM220 112h6v4h-6zM286 74h14v2h-14zM286 84h14v2h-14zM286 104h14v2h-14zM368 98h6v4h-6zM380 108h6v4h-6zM438 70h18v2h-18zM438 88h18v2h-18zM438 106h18v2h-18zM514 94h14v2h-14zM514 114h14v2h-14zM578 110h10v4h-10zM594 110h10v4h-10zM654 72h12v2h-12zM654 92h12v2h-12zM654 112h12v2h-12z"/>
+<path fill="#36828f" d="M220 102h6v4h-6zM286 94h14v2h-14zM368 108h6v4h-6zM438 78h18v2h-18zM438 116h18v2h-18zM514 104h14v2h-14zM654 82h12v2h-12z"/>
+<path fill="#22d3ee" d="M438 98h10v2h-10zM454 98h2v2h-2zM654 102h8v2h-8z"/>
+<!-- rooftop equipment and antennas -->
+<path fill="#284353" d="M214 62h2v12h-2zM206 64h18v2h-18zM288 46h16v14h-16zM292 42h8v4h-8zM374 72h16v10h-16zM444 18h2v20h-2zM436 24h18v2h-18zM510 64h20v14h-20zM516 60h8v4h-8zM660 36h2v20h-2zM652 40h18v2h-18z"/>
+<path fill="#408897" d="M292 50h8v2h-8zM514 68h12v2h-12zM444 18h2v2h-2z"/>
+<!-- utility conduit and suspended walkway -->
+<path fill="#203c4a" d="M316 94h18v4h-18zM318 98h2v28h-2zM330 98h2v28h-2zM474 106h24v4h-24zM478 110h2v16h-2zM492 110h2v16h-2zM620 84h18v4h-18z"/>
+<path fill="#375666" d="M316 94h18v1h-18zM474 106h24v1h-24zM620 84h18v1h-18z"/>
+<!-- near street lamp and a curb create a shared floor -->
+<path fill="#0c1927" d="M118 128V54h4v74h4v-2h-12v2zM118 54V42h30v4h-26v8z"/>
+<path fill="#375666" d="M118 44h2v80h-2zM122 42h24v1h-24z"/>
+<path fill="#8befff" d="M140 46h8v2h-8z"/>
+<path fill="#162b39" d="M0 126h720v2H0z"/>
+<path fill="#284353" d="M0 126h54v1H0zM76 126h108v1H76zM210 126h152v1H210zM386 126h82v1h-82zM492 126h154v1H492zM670 126h50v1h-50z"/>
+</svg>
