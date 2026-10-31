@@ -1,10 +1,14 @@
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const site = path.join(root, 'site');
 const { groups, projects } = JSON.parse(await readFile(path.join(site, 'projects.json'), 'utf8'));
+const revision = async file => createHash('sha256').update(await readFile(path.join(site, file))).digest('hex').slice(0, 12);
+const scriptRevision = await revision('directory.js');
+const styleRevision = await revision('directory.css');
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 const ids = new Set();
 for (const project of projects) {
@@ -24,7 +28,7 @@ const external = (link, context) => `<a href="${escape(link.url)}" aria-label="$
 const card = project => {
   const hasImages = project.images.length > 0;
   const cover = hasImages
-    ? `<a class="project-cover" href="${escape(project.images[0].src)}" data-gallery="${project.id}" aria-label="View gallery: ${escape(project.name)}"><img src="${escape(project.images[0].src)}" alt="${escape(project.images[0].caption)}" width="1280" height="800" loading="lazy"><span class="cover-action">View gallery <span aria-hidden="true">↗</span><span class="cover-count">${project.images.length}</span></span></a>`
+    ? `<div class="project-visual${project.images[0].portrait ? ' portrait' : ''}"><a class="project-cover" href="${escape(project.images[0].src)}" data-gallery="${project.id}" aria-label="View gallery: ${escape(project.name)}"><img src="${escape(project.images[0].src)}" alt="${escape(project.images[0].caption)}" width="1280" height="800" loading="lazy"><span class="cover-action">View gallery <span aria-hidden="true">↗</span><span class="cover-count">1 / ${project.images.length}</span></span></a>${project.images.length > 1 ? `<button class="cover-pause" type="button" data-cover-play="${project.id}" aria-label="Pause previews: ${escape(project.name)}" data-enhanced hidden>Pause</button>` : ''}</div>`
     : `<div class="project-cover placeholder" aria-label="${escape(project.name)}: preview coming soon"><span class="placeholder-label">// ${escape(project.kind)}</span><span class="monogram" aria-hidden="true">${escape(project.monogram)}</span><span class="placeholder-bottom">${escape(project.name)}<span>Preview coming soon</span></span></div>`;
   return `<article class="project-card" id="${project.id}" data-project data-group="${project.group}">
     ${cover}
@@ -66,7 +70,7 @@ const html = `<!doctype html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <script>try { const t = localStorage.getItem('projects.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
-<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css"><script src="/directory.js" defer></script>
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/directory.css?v=${styleRevision}"><script src="/directory.js?v=${scriptRevision}" defer></script>
 </head><body>
 <a class="skip-link" href="#directory">Skip to projects</a>
 <header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="/">// projects</a><nav class="header-links" aria-label="Personal sites"><a href="https://xavierloo.com/">Portfolio <span aria-hidden="true">↗</span></a><a href="https://github.com/jvloo">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
@@ -83,7 +87,7 @@ const html = `<!doctype html>
   <div class="wrap personal-footer"><div><p class="eyebrow">// elsewhere</p><h2>Find me around the web.</h2><nav class="personal-links" aria-label="Personal links"><a href="https://linkedin.com/in/xavier-loo">LinkedIn ↗</a><a href="https://github.com/jvloo">GitHub ↗</a><a href="https://x.com/J130V">X ↗</a><a href="mailto:ping@xavierloo.com">Email ↗</a></nav></div><label class="theme-picker" data-enhanced hidden>Appearance <select id="theme-control"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div>
   <div class="jumbo-footer"><div class="wrap"><div class="footer-title"><p class="eyebrow">// the directory</p><p>Keep exploring<span class="accent">.</span></p><a href="#directory">Back to top ↑</a></div><nav class="footer-columns" aria-label="Public projects">${footerGroups}</nav><div class="footer-bottom"><p>© 2026 Xavier Loo</p><a href="https://apps.xavierloo.com/">More small tools at // apps ↗</a><a href="https://xavierloo.com/">Main portfolio ↗</a></div></div></div>
 </footer>
-<dialog id="gallery" aria-labelledby="gallery-title"><div class="gallery-header"><div><p class="eyebrow">// project gallery</p><h2 id="gallery-title"></h2></div><button type="button" id="gallery-close" aria-label="Close gallery">Close <span aria-hidden="true">×</span></button></div><figure><div class="gallery-stage"><img id="gallery-image" alt=""></div><figcaption><p id="gallery-caption"></p><p class="gallery-source"><a id="gallery-source" href="/">View source ↗</a><a id="gallery-original" href="/" target="_blank" rel="noopener">Full-size image ↗</a><span id="map-attribution" hidden> · <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · <a href="https://openmaptiles.org/">OpenMapTiles</a></span></p></figcaption></figure><div class="gallery-toolbar"><button type="button" id="gallery-prev" aria-label="Previous screenshot">← Previous</button><p id="gallery-position" role="status"></p><button type="button" id="gallery-next" aria-label="Next screenshot">Next →</button></div><div id="gallery-thumbs" class="gallery-thumbs" aria-label="Choose a screenshot"></div><p class="gallery-hint">Use ← → to browse · Esc to close</p></dialog>
+<dialog id="gallery" aria-labelledby="gallery-title"><div class="gallery-header"><div><p class="eyebrow">// project gallery</p><h2 id="gallery-title"></h2></div><button type="button" id="gallery-close" aria-label="Close gallery">Close <span aria-hidden="true">×</span></button></div><figure><div class="gallery-stage"><img id="gallery-image" alt=""></div><figcaption><p id="gallery-caption"></p><p class="gallery-source"><a id="gallery-source" href="/">View source ↗</a><a id="gallery-original" href="/" target="_blank" rel="noopener">Full-size image ↗</a><span id="map-attribution" hidden> · <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a><span id="map-tiles-attribution"> · <a href="https://openmaptiles.org/">OpenMapTiles</a></span></span></p></figcaption></figure><div class="gallery-toolbar"><button type="button" id="gallery-prev" aria-label="Previous screenshot">← Previous</button><div class="gallery-playback"><p id="gallery-position" role="status"></p><button type="button" id="gallery-play" aria-pressed="false">Pause slideshow</button></div><button type="button" id="gallery-next" aria-label="Next screenshot">Next →</button></div><div id="gallery-thumbs" class="gallery-thumbs" aria-label="Choose a screenshot"></div><p class="gallery-hint">Use ← → to browse · Esc to close</p></dialog>
 <script id="gallery-data" type="application/json">${JSON.stringify(galleryData).replaceAll('<', '\\u003c')}</script>
 </body></html>\n`;
 await mkdir(site, { recursive: true });

@@ -1,0 +1,178 @@
+[
+  {
+    "file": "senangprint-storefront.png",
+    "origin": "https://www.senangprint.com/blog/wp-content/uploads/2024/12/Screenshot-2024-12-28-064620.png",
+    "type": "original-published-screenshot",
+    "reviewed_on": "2026-10-31",
+    "sha256": "5e4447a5475d3cda35b6c189d57cdf8e87ce1bbe7f0e2171a4f87ecce41b11ab"
+  },
+  {
+    "file": "popcat-overview.png",
+    "origin": "https://i.imgur.com/688fQrN.png",
+    "type": "original-readme-screenshot",
+    "reviewed_on": "2026-10-31",
+    "sha256": "f00fba2614bdb118b97d0ac6949d0cf133c1ba5793cebc91641d55c066abeeb5"
+  },
+  {
+    "file": "popcat-running.png",
+    "origin": "https://i.imgur.com/y8uFBvn.png",
+    "type": "original-readme-screenshot",
+    "reviewed_on": "2026-10-31",
+    "sha256": "ad1d511ac61b793697601d4826b90e77bffcd5766eb7158ef433d4f7cdc5210d"
+  },
+  {
+    "file": "better-grid-finance.png",
+    "origin": "Better Grid local playground finance demo",
+    "type": "fresh-capture-existing-demo",
+    "reviewed_on": "2026-10-31",
+    "sha256": "914eb55c3900d403c06c6501c8a1aaa3f50d6faf3af43c0aae0a19259f3ca244"
+  },
+  {
+    "file": "better-grid-cells.png",
+    "origin": "Better Grid local playground cell-type demo",
+    "type": "fresh-capture-existing-demo",
+    "reviewed_on": "2026-10-31",
+    "sha256": "35a14d3e2557297890e6470f203a5a7bf53022deefa9d15448b4f5922b289764"
+  },
+  {
+    "file": "kl-properties-home.png",
+    "origin": "https://toitoi.shinyapps.io/klprop/",
+    "type": "fresh-capture-readme-linked-demo",
+    "reviewed_on": "2026-10-31",
+    "sha256": "0d09f4a703a5a8efe69e7412169c53f32587c6eca697da2f392abb5ec005eb3c"
+  },
+  {
+    "file": "kl-properties-map.png",
+    "origin": "https://toitoi.shinyapps.io/klprop/",
+    "type": "fresh-capture-readme-linked-demo",
+    "reviewed_on": "2026-10-31",
+    "sha256": "a24001d846ba330e00d0950ce83002e374611a231d9d8976c75d90cb72e3bdc6"
+  },
+  {
+    "file": "artmeet-job-listing.png",
+    "origin": "https://www.artmeet.my/jobs",
+    "type": "browser-interface-capture",
+    "caption": "Artmeet Malaysia job listings, search filters and job alerts; captured October 2026",
+    "reviewed_on": "2026-10-31",
+    "sha256": "7ed2b093fe1a84ed8b9517e18d87c5a18b02caad19790211569850c6c85a9b5e"
+  },
+  {
+    "file": "artmeet-jobs.png",
+    "origin": "https://www.artmeet.my/jobs",
+    "type": "browser-interface-capture",
+    "caption": "Artmeet Malaysia: creative job listings and job-search filters",
+    "reviewed_on": "2026-10-31",
+    "sha256": "8293b6ccfa2ff0f7347194787f4eb1f61145868210c77fc8b1c4c985bd927a00"
+  },
+  {
+    "file": "senangprint-storefront-live.png",
+    "origin": "https://www.senangprint.com/",
+    "type": "browser-interface-capture",
+    "caption": "SenangPrint storefront, captured in a signed-in session",
+    "reviewed_on": "2026-10-31",
+    "sha256": "980e02dd12b7f262ee5d08598e72bf185e2278a22cc5a60e5075fdc977b42377"
+  },
+  {
+    "file": "senangprint-pricing.png",
+    "origin": "https://www.senangprint.com/offset-brochures.html",
+    "type": "browser-interface-capture",
+    "caption": "Brochure configuration, quantity pricing and order summary; interface capture, not a current price quote",
+    "reviewed_on": "2026-10-31",
+    "sha256": "9ed1ea5a53058b0af272772b6ab896e01b96b0802b0a829d21450bc93e244b98"
+  },
+  {
+    "file": "segi-overview.png",
+    "origin": "Private signed-in staging interface; address withheld",
+    "type": "browser-interface-capture",
+    "caption": "REMOS store overview in staging: recorded-evidence status and inspection queues. Interface capture, not live store conditions.",
+    "reviewed_on": "2026-10-31",
+    "sha256": "36a81ddef34a0e7270500493de9c56505d208dc7b781ae559ef6186a28fd9108"
+  },
+  {
+    "file": "segi-check-rules.png",
+    "origin": "Private signed-in staging interface; address withheld",
+    "type": "browser-interface-capture",
+    "caption": "REMOS staging interface: versioned store check rules for fullness, freshness and compliance",
+    "reviewed_on": "2026-10-31",
+    "sha256": "2457355cb557682e204e3d6b6ec270d16b08aec0fc42f3ad600bad1e404aeef0"
+  },
+  {
+    "file": "unilah-app-home.png",
+    "origin": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=1983-57028",
+    "type": "original-figma-frame-export",
+    "caption": "UniLah app: Home design from Figma, with the original sample profile",
+    "reviewed_on": "2026-10-31",
+    "sha256": "61bcb0d81cab724a74d806206c83c4c38b011436d0e869680c3a879f4bd854a0"
+  },
+  {
+    "file": "unilah-app-deals.png",
+    "origin": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=647-8199",
+    "type": "original-figma-frame-export",
+    "caption": "UniLah app: the original UniDeals design, exported from Figma",
+    "reviewed_on": "2026-10-31",
+    "sha256": "904e94ae2db4a743ff95ae615e5ea6ae84474e8f8d78b94858979e0218addde8"
+  },
+  {
+    "file": "auth0-manager-users.png",
+    "origin": "https://github.com/jvloo/auth0-manager",
+    "type": "original-python-ui-with-fictional-offline-fixtures",
+    "caption": "Users view recovered from the original Python app, seeded locally with fictional example.com accounts; offline preview",
+    "reviewed_on": "2026-10-31",
+    "sha256": "95a1f9b61686735d97178046af93103e857b6ea44f244de9ccb3198a6f7ce0c0",
+    "source_tree_sha": "99c2c2114052fb88910c5919e60794976b0d5a44"
+  },
+  {
+    "file": "auth0-manager-orgs.png",
+    "origin": "https://github.com/jvloo/auth0-manager",
+    "type": "original-python-ui-with-fictional-offline-fixtures",
+    "caption": "Organizations view with fictional local organizations, member counts and cleanup exclusions; offline preview",
+    "reviewed_on": "2026-10-31",
+    "sha256": "30a9f61f90d24bd44b9b19d17c5963b1ff362abd84172bf3adb2139c6221f0ba",
+    "source_tree_sha": "99c2c2114052fb88910c5919e60794976b0d5a44"
+  },
+  {
+    "file": "auth0-manager-action.png",
+    "origin": "https://github.com/jvloo/auth0-manager",
+    "type": "original-python-ui-with-fictional-offline-fixtures",
+    "caption": "Original Block confirmation for a fictional selected user; action cancelled, no real tenant connected",
+    "reviewed_on": "2026-10-31",
+    "sha256": "e36c96983a875c51b732cbc965701376df6a48cd492f305bdae8e42e8c73a0ee",
+    "source_tree_sha": "99c2c2114052fb88910c5919e60794976b0d5a44"
+  },
+  {
+    "file": "auth0-manager-dry-run.png",
+    "origin": "https://github.com/jvloo/auth0-manager",
+    "type": "original-python-ui-with-fictional-offline-fixtures",
+    "caption": "Original organization cleanup dry-run preview against fictional local data; no deletion performed",
+    "reviewed_on": "2026-10-31",
+    "sha256": "81101b4f497849b7902384464eeca1a38264cca51883b563919755e42b2249d9",
+    "source_tree_sha": "99c2c2114052fb88910c5919e60794976b0d5a44"
+  },
+  {
+    "file": "citector-source-editor.png",
+    "origin": "https://github.com/jvloo/Citector",
+    "type": "recovered-original-frontend-preview",
+    "caption": "Citector original editor layout recovered from source. Static interface preview; PHP citation processing not restored.",
+    "reviewed_on": "2026-10-31",
+    "sha256": "3d548432f3d2766987ff78dde1724e8f3eb8595e7a072a6aa11e9ab3fe81850a",
+    "source_tree_sha": "607bd1ae6dff211d678ad98f9ddaec1bba0e408f"
+  },
+  {
+    "file": "investbook-source-login.png",
+    "origin": "https://github.com/jvloo/investbook",
+    "type": "recovered-original-frontend-preview",
+    "caption": "Investbook original sign-in template recovered from source. Static interface preview; backend not restored.",
+    "reviewed_on": "2026-10-31",
+    "sha256": "3ef11faa37782afe8bfe084129074f4c990b53279ddaccc48e34e74616fe7cf5",
+    "source_tree_sha": "b1e16190177e372de787e161aa01246f5573c527"
+  },
+  {
+    "file": "artcert-source-preview.png",
+    "origin": "https://github.com/jvloo/artcert-demo",
+    "type": "recovered-original-frontend-preview",
+    "caption": "ArtCert hackathon landing page recovered from its original React components and stylesheet. Frontend preview; blockchain and backend flows not verified.",
+    "reviewed_on": "2026-10-31",
+    "sha256": "846b0e9796f140cfc5a988f31753f81797f02d3487452010c322c9e2a1f8b1df",
+    "source_tree_sha": "99f3ed3288ad96b59e3387a6bd29dbfe9641c506"
+  }
+]

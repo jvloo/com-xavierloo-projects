@@ -60,7 +60,7 @@
       "links": [
         {
           "label": "Website",
-          "url": "https://www.artmeet.com/"
+          "url": "https://www.artmeet.my/jobs"
         },
         {
           "label": "Case study",
@@ -78,6 +78,16 @@
         }
       ],
       "images": [
+        {
+          "src": "/media/artmeet-job-listing.png",
+          "caption": "Artmeet Malaysia job listings, search filters and job alerts; captured October 2026",
+          "source": "https://www.artmeet.my/jobs"
+        },
+        {
+          "src": "/media/artmeet-jobs.png",
+          "caption": "Artmeet Malaysia: creative job listings and job-search filters",
+          "source": "https://www.artmeet.my/jobs"
+        },
         {
           "src": "/media/artmeet-home.png",
           "caption": "Artmeet's public website",
@@ -118,8 +128,23 @@
           "url": "https://malaysia.news.yahoo.com/magic-looking-future-tech-founders-035606920.html"
         }
       ],
-      "note": "Storefront currently under maintenance.",
-      "images": []
+      "images": [
+        {
+          "src": "/media/senangprint-storefront-live.png",
+          "caption": "SenangPrint storefront, captured in a signed-in session",
+          "source": "https://www.senangprint.com/"
+        },
+        {
+          "src": "/media/senangprint-pricing.png",
+          "caption": "Brochure configuration, quantity pricing and order summary; interface capture, not a current price quote",
+          "source": "https://www.senangprint.com/offset-brochures.html"
+        },
+        {
+          "src": "/media/senangprint-storefront.png",
+          "caption": "Archived SenangPrint storefront, preserved in its published blog assets",
+          "source": "https://www.senangprint.com/blog/wp-content/uploads/2024/12/Screenshot-2024-12-28-064620.png"
+        }
+      ]
     },
     {
       "id": "theralink",
@@ -145,14 +170,14 @@
       ],
       "images": [
         {
-          "src": "/media/theralink-home.png",
-          "caption": "TheraLink's public homepage",
-          "source": "https://www.theralink.my/"
-        },
-        {
           "src": "/media/theralink-search.png",
           "caption": "Therapist discovery and appointment filters",
           "source": "https://www.theralink.my/therapists"
+        },
+        {
+          "src": "/media/theralink-home.png",
+          "caption": "TheraLink's public homepage",
+          "source": "https://www.theralink.my/"
         }
       ]
     },
@@ -210,7 +235,17 @@
         "Edge AI"
       ],
       "links": [],
-      "images": []
+      "images": [
+        {
+          "src": "/media/segi-overview.png",
+          "caption": "REMOS store overview in staging: recorded-evidence status and inspection queues. Interface capture, not live store conditions."
+        },
+        {
+          "src": "/media/segi-check-rules.png",
+          "caption": "REMOS staging interface: versioned store check rules for fullness, freshness and compliance"
+        }
+      ],
+      "note": "Screenshots show the staging interface. The operational portal is private."
     },
     {
       "id": "unilah",
@@ -236,9 +271,16 @@
       ],
       "images": [
         {
-          "src": "/media/unilah-home.png",
-          "caption": "UniLah's public website today",
-          "source": "https://myunilah.com/"
+          "src": "/media/unilah-app-home.png",
+          "caption": "UniLah app: Home design from Figma, with the original sample profile",
+          "source": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=1983-57028",
+          "portrait": true
+        },
+        {
+          "src": "/media/unilah-app-deals.png",
+          "caption": "UniLah app: the original UniDeals design, exported from Figma",
+          "source": "https://www.figma.com/design/jj6r2iSXhX7LXWZFhSdNlV/?node-id=647-8199",
+          "portrait": true
         }
       ]
     },
@@ -329,7 +371,18 @@
           "url": "https://github.com/jvloo/better-grid"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/better-grid-finance.png",
+          "caption": "Better Grid playground: finance dashboard with built-in sample data. Captured from the existing local demo.",
+          "source": "https://github.com/jvloo/better-grid"
+        },
+        {
+          "src": "/media/better-grid-cells.png",
+          "caption": "Better Grid playground: built-in cell renderers using sample data.",
+          "source": "https://github.com/jvloo/better-grid"
+        }
+      ]
     },
     {
       "id": "lockscreen",
@@ -375,7 +428,28 @@
           "url": "https://github.com/jvloo/auth0-manager"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/auth0-manager-users.png",
+          "caption": "Users view recovered from the original Python app, seeded locally with fictional example.com accounts; offline preview",
+          "source": "https://github.com/jvloo/auth0-manager"
+        },
+        {
+          "src": "/media/auth0-manager-orgs.png",
+          "caption": "Organizations view with fictional local organizations, member counts and cleanup exclusions; offline preview",
+          "source": "https://github.com/jvloo/auth0-manager"
+        },
+        {
+          "src": "/media/auth0-manager-action.png",
+          "caption": "Original Block confirmation for a fictional selected user; action cancelled, no real tenant connected",
+          "source": "https://github.com/jvloo/auth0-manager"
+        },
+        {
+          "src": "/media/auth0-manager-dry-run.png",
+          "caption": "Original organization cleanup dry-run preview against fictional local data; no deletion performed",
+          "source": "https://github.com/jvloo/auth0-manager"
+        }
+      ]
     },
     {
       "id": "citector",
@@ -394,7 +468,13 @@
           "url": "https://github.com/jvloo/Citector"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/citector-source-editor.png",
+          "caption": "Citector original editor layout recovered from source. Static interface preview; PHP citation processing not restored.",
+          "source": "https://github.com/jvloo/Citector"
+        }
+      ]
     },
     {
       "id": "popcat",
@@ -414,7 +494,18 @@
           "url": "https://github.com/jvloo/popcat-popbot"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/popcat-overview.png",
+          "caption": "Original PopCat screenshot linked from the PopBot README. Historical interface and leaderboard.",
+          "source": "https://github.com/jvloo/popcat-popbot"
+        },
+        {
+          "src": "/media/popcat-running.png",
+          "caption": "Original running-demo screenshot from the PopBot README. Historical output, not a current performance claim.",
+          "source": "https://github.com/jvloo/popcat-popbot"
+        }
+      ]
     },
     {
       "id": "cve-watcher",
@@ -494,7 +585,14 @@
           "url": "https://github.com/jvloo/investbook"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/investbook-source-login.png",
+          "caption": "Investbook original sign-in template recovered from source. Static interface preview; backend not restored.",
+          "source": "https://github.com/jvloo/investbook",
+          "portrait": true
+        }
+      ]
     },
     {
       "id": "artcert",
@@ -514,7 +612,13 @@
           "url": "https://github.com/jvloo/artcert-demo"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "src": "/media/artcert-source-preview.png",
+          "caption": "ArtCert hackathon landing page recovered from its original React components and stylesheet. Frontend preview; blockchain and backend flows not verified.",
+          "source": "https://github.com/jvloo/artcert-demo"
+        }
+      ]
     },
     {
       "id": "um-mds",
@@ -529,7 +633,19 @@
         "Shiny"
       ],
       "links": [],
-      "images": []
+      "images": [
+        {
+          "src": "/media/kl-properties-home.png",
+          "caption": "PropSight / KL Properties: the original R Shiny coursework demo linked from the repository README.",
+          "source": "https://toitoi.shinyapps.io/klprop/"
+        },
+        {
+          "src": "/media/kl-properties-map.png",
+          "caption": "PropSight screening map using the coursework dataset, not current property valuations. Map data © OpenStreetMap contributors.",
+          "source": "https://toitoi.shinyapps.io/klprop/",
+          "attribution": "openstreetmap"
+        }
+      ]
     },
     {
       "id": "chatroom",

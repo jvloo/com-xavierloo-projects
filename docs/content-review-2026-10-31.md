@@ -10,7 +10,7 @@ This directory is a personal portfolio. Role descriptions are Xavier's account, 
 - Omitted user/adoption counts and unverified performance improvements. No financial, security, healthcare, or AI-accuracy guarantees are made.
 - Segi Fresh is described as a pilot. The supplied five-store count and 160+ store rollout plan are not presented as independently confirmed or nationwide deployment.
 - No current-employer or employment-date claims: the older portfolio lists Wiseway as current while the live LinkedIn profile shows FeedMe.
-- SenangPrint's website responds successfully but says its storefront is under maintenance and is not accepting new website orders. It is not labelled live or operational for ordering.
+- SenangPrint initially showed a maintenance notice publicly. A later signed-in browser session exposed its storefront and product configurator. Screenshots distinguish current session captures from the archived blog image; no current ordering availability is claimed.
 - Road to AI is explicitly in progress; its live interface shows unfinished curriculum tiers. Better Grid and Auth0 Manager are also marked in progress, consistent with repository metadata.
 - Citector is archived according to GitHub metadata; no defunct demo URL is used.
 - Earlier work remains without outgoing project links, matching the user's requested treatment even where a repository is public.
@@ -45,3 +45,27 @@ Archived Wiseway media was specifically requested by Xavier from `jvloo-archived
 See [Wiseway media hashes](wiseway-media-provenance.json). Profile, company settings, billing, users, and unsubmitted-feedback screenshots were excluded. No private source code or working notes were copied into the public site.
 
 Projects without suitable reviewed images use a labelled preview placeholder. Placeholders are abstract identity covers and do not depict invented product screens.
+
+
+## Additional media recovery and gallery update
+
+34 screenshots across 17 project galleries are now used. Covers are the first gallery slide. Multi-image cards and galleries rotate every six seconds, with pause controls. Cover previews pause on hover/focus; gallery navigation pauses playback. Hidden tabs and off-screen covers stop their timers. Reduced-motion preference starts playback paused, with an explicit Play control available.
+
+- **Artmeet:** the Malaysia job-listing interface is the cover; its page introduction and original marketing captures follow.
+- **TheraLink:** therapist search is the cover, followed by the homepage.
+- **SenangPrint:** signed-in storefront and brochure quantity-pricing UI, plus the older published storefront screenshot. No customer orders, account records, addresses, or payment information were captured.
+- **Segi Fresh:** staging overview status cards and store check rules only. The overview capture excludes camera images. The portal address is withheld from the site, image captions, public source links, and provenance. No rules, pipeline controls, or analysis requests were changed.
+- **UniLah:** Home (`1983:57028`) and UniDeals (`647:8199`) were handpicked and exported from the supplied original Figma file. Home is the cover. These are app designs, not current production app screenshots. Home's John Doe profile is sample design content. Long portrait screens remain available through the full-size image link.
+- **Auth0 Manager:** original Python/Tkinter UI recovered from public source. A separate local launcher supplies 12 fictional users using `example.com`, six fictional organizations, and original model classes. Configuration storage is isolated; socket connections are disabled. Captures show Users, Organizations, a Block confirmation (cancelled), and a cleanup dry-run preview. No real tenant credentials were read or used; no real accounts were changed. The app's unmodified view methods render the supplied fixtures.
+- **Better Grid:** the original existing playground's financial-data and cell-types examples, with its built-in example data. No source changes were made to that repository.
+- **PopCat PopBot:** original screenshots linked from the README, rather than stock assets.
+- **KL Properties / PropSight:** the original README-linked Shiny demo's home and screening-map views. The historical coursework dataset is not presented as current property pricing. OpenStreetMap attribution is retained.
+- **ArtCert:** original React LandingPage/Header/Footer components and stylesheet rendered locally. A minimal React 18 / Router 5 frontend harness avoids the repository's incompatible Router 6 declaration and unused backend packages. No Firebase or blockchain backend is connected. Screenshot captions describe a frontend preview rather than functional certification.
+- **Citector:** original PHP page's empty-data HTML/editor and original styles/fonts rendered locally. PHP processing was not restored. No citation-result data was invented.
+- **Investbook:** original mobile sign-in template and stylesheet rendered locally. PHP helpers were replaced with local paths, server expressions were omitted, and scripts making backend requests were excluded. No account sign-in or media upload was attempted.
+
+The restored frontend harnesses and fixture data are disposable, ignored local working files. Source tree SHAs, capture classifications, origins, and media hashes are recorded in [additional media provenance](additional-media-provenance.json).
+
+Five placeholders remain: Codevio partner projects, Agentisan, the early chatroom, anonymous social platform, and club/society app. Repository trees, README-linked media, available releases/issues, and selected alternate branches were checked. Codevio has no suitable product capture; private contact-card photos were excluded. Agentisan has a terminal dashboard but no reviewed screenshot, and the current machine has no Rust toolchain for a source build. The anonymous platform's original view depends on missing application/API state; an incomplete or invented feed is not published. The chatroom and club app have no confidently matched source repository in the reviewed set.
+
+Validation: static build, JavaScript syntax, diff whitespace, image existence and privacy-string scans passed. Browser checks confirmed initial cover ordering, automatic advance, pause controls, manual gallery navigation pausing playback, mobile width containment, and reduced-motion default pause. Captures were visually reviewed before publication.
