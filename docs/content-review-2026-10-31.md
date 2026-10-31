@@ -49,7 +49,7 @@ Projects without suitable reviewed images use a labelled preview placeholder. Pl
 
 ## Additional media recovery and gallery update
 
-33 screenshots across 17 project galleries are now used. Covers are the initial card image. At Xavier's request, autoplay has been removed entirely. Multi-image cards have previous/next arrow buttons and gallery dialogs retain previous/next buttons, thumbnails and keyboard navigation. Navigation stops at the first and last images. Clicking a preview opens the currently displayed image. Cover selections will be curated with Xavier one project at a time.
+34 gallery images across 17 project galleries are now used. Covers are the initial card image. At Xavier's request, autoplay has been removed entirely. Multi-image cards have previous/next arrow buttons and gallery dialogs retain previous/next buttons, thumbnails and keyboard navigation. Navigation stops at the first and last images. Clicking a preview opens the currently displayed image. Cover selections will be curated with Xavier one project at a time.
 
 - **Artmeet:** the Malaysia job-listing interface is the cover; its page introduction and original marketing captures follow.
 - **TheraLink:** therapist search is the cover, followed by the homepage.
@@ -82,10 +82,18 @@ The source screenshots, cover choices, ordering, provenance, private-portal addr
 
 ## Featured project, personal introduction and browsing polish
 
-LOKA Maps is the featured/latest project at Xavier's request. Its hero uses the existing unchanged map screenshot, a direct link to the public app, a link to its manual gallery, and visible OpenStreetMap/OpenMapTiles attribution. The featured gallery explicitly starts at the hero's shown image even if the directory's LOKA carousel has been moved to another image. LOKA remains in the directory; the total remains 22 projects.
+LOKA Maps is the featured/latest project at Xavier's request. Its hero uses the Explore desktop-and-mobile composition, a direct link to the public app, a link to its manual gallery, and visible OpenStreetMap/OpenMapTiles attribution. The featured gallery explicitly starts at the hero's shown image even if the directory's LOKA carousel has been moved to another image. LOKA remains in the directory; the total remains 22 projects.
 
 A short introduction precedes the hero. The displayed LinkedIn profile was reviewed again on 31 October 2026. Its headline identifies Xavier as a senior software engineer, AI/ML engineer and former startup founder; the introduction condenses those roles, without repeating its adoption-count claim or employment details. Xavier explicitly requested his profile photograph. The displayed original 400x400 JPEG was downloaded unchanged and is hosted locally so the site does not depend on an expiring LinkedIn CDN URL. Its hash and public profile origin are in the media provenance manifest.
 
 The page now has one H1 (Xavier's introduction), a featured-project H2, and a smaller directory heading. The skip link jumps directly to the directory. Search and category filters remain visible while browsing, with an explicit reset control, an empty-results recovery action, Escape to clear the search, and the existing slash shortcut. Resetting category filters also brings the selected category into view on narrow screens. No autoplay was reintroduced.
 
 Desktop, tablet and mobile layouts were reviewed at 320, 390, 768 and 1440 CSS pixels, with no horizontal overflow or heading clipping. Light and dark appearances, the original portrait, gallery opening, map credits, category counts, earlier-work expansion, empty search results, reset behavior and search clearing were checked. Main text and action colors pass a 4.5:1 contrast check. Cover choices, private portal handling and existing full-image framing remain unchanged.
+
+## LOKA curated desktop and mobile gallery
+
+At Xavier's request, LOKA now has three 1600×1000 presentation images: Explore (cover and featured hero), Planner, and Navigate. Each pairs the full desktop and mobile interface in a consistent LOKA forest/apricot layout. Original screen contents are not retouched. Earlier default-map and empty-directions captures are superseded in the gallery.
+
+Planner shows the real computed driving route from Sunway Velocity Mall to Mid Valley Megamall. Navigate shows the same trip just beyond halfway, with public coordinates replayed as simulated GPS. The composition and caption label it as a demo, not a recorded drive or physical navigation validation. Route estimates and unknown toll information are preserved from the interface. OpenStreetMap/OpenMapTiles attribution is visible in the images and gallery.
+
+The capture session used an isolated origin with account/report mutations blocked. No personal saved trip or real device location appears in the captures. The synthetic trip and saved fix were cleared, navigation ended, and GPS and viewport overrides removed. Source and composition hashes are recorded in [LOKA media provenance](loka-media-provenance.json). Manual carousel controls remain unchanged.

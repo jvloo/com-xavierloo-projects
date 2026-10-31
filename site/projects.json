@@ -323,14 +323,20 @@
       ],
       "images": [
         {
-          "src": "/media/loka-map.png",
-          "caption": "LOKA's map view. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+          "src": "/media/loka-explore-desktop-mobile.jpg",
+          "caption": "Explore — LOKA's desktop and mobile map views, presented together. Map data © OpenStreetMap contributors and © OpenMapTiles.",
           "source": "https://lokamaps.app/",
           "attribution": true
         },
         {
-          "src": "/media/loka-directions.png",
-          "caption": "LOKA's directions panel. Map data © OpenStreetMap contributors and © OpenMapTiles.",
+          "src": "/media/loka-planner-desktop-mobile.jpg",
+          "caption": "Planner — Sunway Velocity Mall to Mid Valley Megamall. Desktop and mobile driving-route preview, captured October 2026.",
+          "source": "https://lokamaps.app/",
+          "attribution": true
+        },
+        {
+          "src": "/media/loka-navigate-desktop-mobile.jpg",
+          "caption": "Navigate — a simulated GPS driving demo from Sunway Velocity Mall to Mid Valley Megamall, just beyond halfway through the trip. Desktop and mobile views.",
           "source": "https://lokamaps.app/",
           "attribution": true
         }

@@ -1,0 +1,96 @@
+{
+  "captured_on": "2026-10-31",
+  "source": "https://lokamaps.app/",
+  "method": "Real public interface captured on a separate loopback origin. The capture proxy rewrote public asset origins for same-origin loading and blocked account/report mutations. Unaltered desktop and mobile captures were scaled into HTML presentation layouts; interface values were not edited.",
+  "route": {
+    "from": "Sunway Velocity Mall",
+    "to": "Mid Valley Megamall",
+    "mode": "Drive"
+  },
+  "navigation": "Accelerated simulated GPS along the actual UI-generated route. Not a recorded journey, physical GPS test, travel-time validation or verified destination entrance.",
+  "privacy": "Explore uses location off. Navigate uses only public route coordinates with simulated GPS. No signed-in account, real device location or personal saved trip appears in the captures. Synthetic trip and saved fix were cleared and GPS/viewport overrides removed afterward.",
+  "attribution": "Map data © OpenStreetMap contributors and © OpenMapTiles",
+  "compositions": [
+    {
+      "mode": "explore",
+      "file": "loka-explore-desktop-mobile.jpg",
+      "sha256": "d1f3bac2a728d0224f50d97d600ee10813c08172db4687fc4d31a0f483174903",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "sources": [
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "sha256": "ee8a44a65a6e37326d1c051e971abdd4c1de81e8f1d512097b6cbb893f22b8bd"
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "sha256": "5cd1b646757d24085b81528653d3f5b6ed1bb2bc4cbcf2009c0ebf9e80aee9de"
+        }
+      ]
+    },
+    {
+      "mode": "planner",
+      "file": "loka-planner-desktop-mobile.jpg",
+      "sha256": "fb09e719b4bc9d1704434489790e7381c62ae49c6f13415bcb61aa6c91640557",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "sources": [
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "sha256": "bc37a989f37a3238902e62b81912a207116787d3cbe10df8fb966c8990ee1fd4"
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "sha256": "d30f1c33b87ebccaf7ba6bd2e0e9c58eb1e6e56f744031c23eff11886f7515e1"
+        }
+      ]
+    },
+    {
+      "mode": "navigate",
+      "file": "loka-navigate-desktop-mobile.jpg",
+      "sha256": "4a764f36abb09b528dd8b09217f9df9828cbe658e60b9d6372acdb5503cb8935",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "sources": [
+        {
+          "viewport": [
+            1440,
+            900
+          ],
+          "sha256": "fae14ca07ad1f49dd427ae174e1f4e6f3b263df66c1809fca9d12d03f28dff34"
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "sha256": "b89384215a55611cb4a643ca3e417ac1264ee3eea917b99530a448dc5b058f57"
+        }
+      ],
+      "simulated_gps": true,
+      "approximate_progress_metres": [
+        5214,
+        5234
+      ],
+      "route_metres": 9647.7
+    }
+  ]
+}
