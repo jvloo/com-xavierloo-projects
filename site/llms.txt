@@ -1,0 +1,10 @@
+# Projects by Xavier Loo
+
+> A directory of projects by Xavier Loo, served at projects.xavierloo.com.
+
+No projects are listed yet.
+
+## Related
+
+- [Apps by Xavier Loo](https://apps.xavierloo.com/): Small tools built and maintained by Xavier Loo.
+- [Xavier Loo](https://xavierloo.com/): Personal website.

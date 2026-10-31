@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "com-xavierloo-projects",
+  "main": "src/index.ts",
+  "account_id": "bb946ea94c2effbd60750fa358b48ee7",
+  "compatibility_date": "2026-08-25",
+  "routes": [{ "pattern": "projects.xavierloo.com", "custom_domain": true }],
+  "workers_dev": false,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
