@@ -161,9 +161,7 @@
 /* Chapter heading: original pixel city architecture shares a ground line with the chapter prop. */
 [data-skin="rpg"] .section-head { position: relative; isolation: isolate; margin-bottom: 20px; padding: 18px 0 14px; --scene-shift: 0px; }
 [data-skin="rpg"] .section-head > div { position: relative; z-index: 1; }
-[data-skin="rpg"] .section-head::before, [data-skin="rpg"][data-theme="dark"] .section-head::before { opacity: .86; }
-@media (prefers-color-scheme: dark) { [data-skin="rpg"]:not([data-theme="light"]) .section-head::before { opacity: .86; } }
-[data-skin="rpg"] .section-head::after { content: ""; position: absolute; pointer-events: none; z-index: 0; }
+[data-skin="rpg"] .section-head::before, [data-skin="rpg"] .section-head::after { content: ""; position: absolute; pointer-events: none; z-index: 0; }
 [data-skin="rpg"] .section-head::before { inset: 0 0 2px; background: url("/rpg/city-block.svg") calc(100% + var(--scene-shift)) bottom / 720px 128px no-repeat; opacity: .18;
   -webkit-mask-image: linear-gradient(90deg, transparent 15%, #000 80%); mask-image: linear-gradient(90deg, transparent 15%, #000 80%); }
 [data-skin="rpg"][data-theme="dark"] .section-head::before { opacity: .86; }
