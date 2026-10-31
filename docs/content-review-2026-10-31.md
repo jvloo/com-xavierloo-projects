@@ -112,3 +112,13 @@ Capture conditions: screenshots came from the public app through an isolated, wr
 ## Project grouping refinement
 
 The opening sequence is the personal introduction, featured LOKA project, then Built end-to-end, Contributions, Side projects, Open source, Apps & hackathons, and Earlier work. Segi Fresh belongs with the four end-to-end builds; Contributions contains Wiseway, UniLah and Codevio. Roles remain explicit so co-founding, contracting and employment are not conflated. Earlier work is fully expanded.
+
+## Optional cyberpunk RPG world
+
+The header now compares the default minimalist directory at `/` with an optional RPG journal at `/rpg/`. These are two static outputs from the same project and gallery data. The style choice does not persist or redirect the default entry point. Appearance remains a separate shared light/dark preference.
+
+The RPG opening places the introduction and featured LOKA spread inside an original pixel-art neon city, with foreground skyline silhouettes and slow ambient lights. The night scene remains readable in either appearance; the compendium follows the selected appearance. Chapters use a margin trail and waypoint markers on large screens, lighter project frames and an open side-project spread. The user's RPG Maker origin is included without claiming a shipped game. There is no gameplay gate, invented experience score, sound, or automatic gallery playback. Decorative animations stop for reduced-motion preferences.
+
+The city is generated illustration, not evidence of a project or a product screenshot. Its original bytes and generation prompt are recorded in [city art provenance](rpg-city-art-provenance.json). Product screenshots and the portrait remain unchanged and unfiltered. The unused forest concept was not included in this deployment.
+
+Browser checks cover the 320px and 768px layouts and the 1440px desktop composition, light and dark appearances, header style comparison, the synchronized Planner pair, four directly visible earlier-work entries, and reduced-motion behavior. Shared data checks confirm 22 projects, six categories, 17 galleries, and exactly one user-approved Segi image. The public page sources contain no operational portal URL.

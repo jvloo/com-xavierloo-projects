@@ -24,6 +24,8 @@ node scripts/build.mjs
 python -m http.server 4174 --directory site
 ```
 
+`node scripts/build.mjs` writes two pages from the same `projects.json` and gallery data: the default minimalist `site/index.html` (`/`) and an alternate immersive pixel-art cyberpunk RPG journal skin, `site/rpg/index.html` (`/rpg/`), styled by `site/rpg/rpg.css` (every rule scoped to `[data-skin="rpg"]`) and the decorative `site/rpg/cyberpunk-city.png`. A plain-link Minimal/RPG switch in the header moves between them; nothing is persisted and `/` never redirects. The build fails if the RPG stylesheet or panorama is missing.
+
 Client-side JavaScript adds search, category filters, screenshot galleries and an appearance selector. Project content, outgoing links and all earlier-work cards remain available without it.
 
 ```sh
